@@ -1,0 +1,131 @@
+@import "susy_base";
+@import "base";
+
+/*
+* Inline block styles, apply as needed.
+*/
+
+.border {
+  border: 1px solid $border !important;
+  clear: both;
+}
+.border-bottom {
+  border-bottom: solid 1px $border !important;
+  margin-bottom: $margin;
+}
+.border-top {
+  border-bottom: solid 1px $border !important;
+}
+.border-none {
+  border: none !important;
+}
+.break {
+  border-bottom: 2px solid $hlight !important;
+  margin: $margin 0;
+}
+
+.inset {
+  padding: $margin;
+  margin: $margin;
+  border: solid 1px $border;
+  clear: both;
+}
+
+.padding {
+  padding: $margin;
+}
+
+.padding-top {
+  padding-top: $margin;
+}
+.padding-bottom {
+  padding-bottom: $margin !important;
+}
+.padding-none {
+  padding: 0px !important;
+}
+.margin {
+  margin: $margin;
+}
+.margin-vertical {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+.margin-top {
+  margin-top: $margin * 2;
+}
+.margin-top-half {
+  margin-top: $margin;
+}
+.margin-bottom {
+  margin-bottom: $margin * 2;
+}
+.margin-bottom-half {
+  margin-bottom: $margin;
+}
+.margin-none {
+  margin: 0px !important;
+}
+.margin-top-none {
+  margin-bottom:0px !important;
+}
+.margin-bottom-none {
+  margin-bottom:0px !important;
+}
+
+.fifty, .one-half, .onehalf {
+  width: 50%
+}
+
+.twentyfive, .twenty-five, .one-fourth, .onefourth {
+  width: 25%;
+}
+
+.onethird, .one-third {
+  width: 33.32%;
+}
+
+
+.floatright, .float-right {
+  margin: 0 0 $margin $margin;
+  margin-top: $margin / 2;
+  float: right;
+  clear: both;
+  box-sizing: border-box;
+  display: block;
+  img {
+    display: block;
+  }
+}
+
+.floatleft, .float-left {
+  float: left;
+  margin: 0 $margin $margin 0;
+  margin-top: $margin / 2;
+  clear: both;
+  box-sizing: border-box;
+  display: block;
+  img {
+    display: block;
+  }
+}
+
+.floatleft:after, .float-left:after  {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.floatright:after, .float-right:after  {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*
+* Inline typography styles, apply as needed.
+*/
+
+.bold {
+  font-weight: bold !important;
+}

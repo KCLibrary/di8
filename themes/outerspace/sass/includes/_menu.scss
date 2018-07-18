@@ -1,0 +1,199 @@
+/* --------------- Main Menu ------------ */
+
+
+header.section {
+  @include breakpoint($phone) {
+  }
+}
+.header-region {
+  z-index: 100;
+    @include breakpoint($phone) {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+    }
+  #burger {
+    margin-top: 10px;
+      @include breakpoint($phone) {
+        margin-top: 0px;
+      }
+    .burger-background {
+      @include breakpoint($phone) {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 55px;
+        height: 100px;
+        background-color: $theme-dark;
+        text-align: right;
+        margin-top: 0;
+        -webkit-box-shadow: 19px -19px 17px 21px rgba(0,0,0,0.75);
+        -moz-box-shadow: 19px -19px 17px 21px rgba(0,0,0,0.75);
+        box-shadow: 19px -19px 17px 21px rgba(0,0,0,0.75);
+      }
+    }
+    }
+  .hamburger, .cross, .search {
+    border: solid 1px $theme-color !important;
+    background-color: $theme-dark;
+    color: $theme-color;
+    overflow: hidden;
+  }
+  .search {
+    background-image: url("../images/spyglass.svg");
+    background-repeat: no-repeat;
+    @include breakpoint($phone) {
+      background-position: center center;
+      background-position-y: 0px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 36px;
+      height: 36px;
+    }
+  }
+  .hamburger {
+    background-image: url("../images/hamburger.svg");
+    background-repeat: no-repeat;
+    padding-right: 35px;
+    background-position: right top;
+    @include breakpoint($phone) {
+      background-position-x: 0px;
+      position: absolute;
+      right: 10px;
+      top: 55px;
+      width: 36px;
+      height: 36px;
+      text-indent: 100px;
+      padding: 0px;
+    }
+  }
+  .block-menu {
+    right: 35px;
+    //top: 60px;
+    z-index: 100;
+    position: absolute;
+    background-color: $theme-color;
+    @include breakpoint($phone) {
+      right: 0px;
+      top: 90px;
+    }
+
+    //display: none;
+
+    ul.menu {
+      border: solid 1px black;
+      background-color: $theme-color;
+      color: $theme-dark;
+      padding: 0px;
+      border: solid 10px $theme-color !important;
+      @include breakpoint($phone) {
+        margin-bottom: $base-line-height / 2;
+      }
+      li {
+        list-style-type: none;
+        clear: both;
+        padding: 0px;
+        display: block;
+        width: 100%;
+        text-align: left;
+        a {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.block-menu {
+  clear: both;
+  ul.menu {
+    font-size: 0.929em;
+    margin: 0;
+    padding: 0 15px;
+  }
+  ul.menu li {
+    display: inline-block;
+    list-style: none;
+    padding: 0 0px;
+    margin: 0 0px;
+  }
+  ul.menu a {
+    padding: 0 0.8em;
+    line-height: 2.4em;
+    height: 2.4em;
+    /* tabs
+        color: #333;
+        background-color: green;
+        font-weight: bold;
+        //background: #ccc;
+        //background: rgba(255, 255, 255, 0.7);
+        height: 2.4em;
+        line-height: 2.4em;
+        text-decoration: none;
+        //text-shadow: 0 1px #eee;
+        -khtml-border-radius-topleft: 8px;
+        -khtml-border-radius-topright: 8px;
+        -moz-border-radius-topleft: 8px;
+        -moz-border-radius-topright: 8px;
+        -webkit-border-top-left-radius: 8px;
+        -webkit-border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        */
+  }
+  li.active-trail {
+    background-color: $theme-comp;
+  }
+
+  ul.menu li:hover,
+  ul.menu li:focus  {
+    background-color: $theme-tint;
+    > a {
+      color: $theme-color;
+      background-color: none;
+    }
+    //background: rgba(255, 255, 255, 0.95);
+  }
+
+
+  ul.menu li:active {
+    background: $theme-dark;
+    //background: rgba(255, 255, 255, 1);
+  }
+  ul.menu li a.active {
+    border-bottom: none;
+  }
+  .featured ul.menu li a:active,
+  .featured ul.menu li a.active {
+    background: #f0f0f0;
+    //background: rgba(240, 240, 240, 1.0);
+  }
+}
+
+ul.tabs.primary {
+  text-align: right;
+  padding: 5px 0;
+  position: relative;
+
+  li {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    color: #ffffff;
+
+    &.pager-current {
+      padding: 5px 8px;
+      color: $highlight;
+    }
+    &.pager-last {
+    }
+
+    a {
+      padding: 5px 8px;
+      margin: 0;
+      color: #ffffff;
+    }
+  }
+}
+

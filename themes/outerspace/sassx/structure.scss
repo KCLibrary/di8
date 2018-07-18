@@ -1,0 +1,107 @@
+@import "susy_base";
+@import "base";
+@import "breakpoint";
+
+/*
+* Breakpoint Definitions
+*/
+
+$phone: 600px;
+$tablet: 601px 1000px;
+$desk-top: 1001px 1600px;
+
+.partial-width-container {
+  @include container();
+  @include breakpoint($phone) {
+    width: 50%;
+    margin: auto;
+  }
+  @include breakpoint($tablet) {
+    width: 70%;
+    margin: auto;
+  }
+  @include breakpoint($desk-top) {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+.span-full {
+  @include span(full);
+}
+
+
+/**
+* The layout when there is only one sidebar, the left one.
+*/
+.sidebar-first {
+  .page-content {
+    @include span(13 last);
+  }
+
+  .sidebar.first {
+    @include span(5 first);
+  }
+}
+
+/**
+ * The layout when there is only one sidebar, the right one.
+ */
+.sidebar-second {
+  .page-content {
+    @include span(13 first);
+  }
+
+  .sidebar.second {
+    @include span(5 last);
+  }
+}
+
+/**
+ * The layout when there are two sidebars.
+ */
+.both-sidebars {
+  .page-content {
+    @include span(isolate 10 at 5);
+  }
+
+  .sidebar.first {
+    @include span(4 first);
+  }
+
+  .sidebar.second {
+    @include span(4 last);
+  }
+}
+/**
+ * The layout when there are two sidebars.
+ */
+.no-sidebars {
+  .page-content {
+   @include span(full);
+  }
+}
+
+
+
+
+/*
+* full width containers.
+*/
+#header-full, #navigation-full, #page-full, #footer-full, .region-highlighted  {clear: both;}
+
+/*
+* partial width containers
+*/
+
+#header {padding:$padding 0; margin-bottom: -2px}
+#navigation {}
+#page {padding:$padding 0;}
+#footer {padding:$padding 0;}
+#highlighted {padding:0 0 $padding 0}
+
+.page-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}

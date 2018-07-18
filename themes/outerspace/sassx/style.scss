@@ -1,0 +1,129 @@
+@import "susy_base";
+@import "base";
+
+html {
+  box-sizing: border-box !important;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  // Setting up font size, leading and font family
+  //  http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-better-typography
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3em;
+  font-weight: normal;
+  margin:0 !important;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.6em !important;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  margin: 0;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  color: $gray;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  color: $gray;
+}
+
+
+h4 {
+  font-size: $h4-font-size;
+  color: $gray;
+}
+
+h5 {
+  font-size: $h5-font-size;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+h1.page-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom:solid 1px $gray;
+}
+
+p {
+  margin-top: 0px;
+}
+
+#page {
+  // Links
+  a {
+    color: #337ab4 !important;
+    &:link, &:visited {
+      color: #337ab4 !important;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    &:hover, &:active {
+      color: red;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+/*
+* Menus
+*/
+
+#block-kcbasic-main-menu, .main--menu {
+  ul.menu {
+    display: table;
+    margin: 0 !important;
+    li.menu-item {
+      display: table-cell;
+      table-layout: fixed;
+      margin: 0px;
+      padding: 0px;
+      border-bottom: solid 2px #337ab4;
+      border-top-left-radius: .2em .2em;
+      border-top-right-radius: .2em .2em;
+      a {
+        color: #fff;
+        font-size: .8em;
+        display: block;
+        padding: 4px 8px !important;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      &:hover {
+        background-color: #083752;
+        border-bottom-color: #fff;
+      }
+    }
+  }
+}
+
+/**
+* use class box to stack html
+*/
+
+.box {
+  padding-bottom: $base-line-height;
+}
+.border-bottom {
+  border-bottom:solid 1px $gray;
+}

@@ -1,0 +1,85 @@
+@import "sass/_base";
+@import "includes/include";
+
+/*
+* Theme
+*/
+header {
+    .site-name {
+      @include plumber(
+              $font-size: 1.4,
+              $line-height: 1,
+              $leading-top: 1,
+              $leading-bottom: 1
+      );
+      margin-top: 0px;
+      font-family: $headline;
+      text-transform: uppercase;
+      font-weight: bold;
+      a {
+        font-family: $headline;
+        color: $theme-comp;
+      }
+    }
+    .site-slogan {
+      @include plumber(
+              $font-size: .7,
+              $line-height: 1,
+              $leading-top: 0
+      );
+    }
+    @include breakpoint($phone) {
+    }
+}
+
+
+.breadcrumb-nav {
+  margin-bottom: $base-line-height;
+  .breadcrumb {
+    a {
+      padding: $base-line-height / 3;
+      border: solid 1px $gray-7;
+      -webkit-border-radius: 5;
+      -moz-border-radius: 5;
+      border-radius: 5px;
+      background-color: $theme-tint;
+      text-decoration: none;
+      &:hover {
+        background-color: $theme-color !important;
+      }
+    }
+  }
+}
+
+.field-name-field-image {
+  margin-bottom: $base-line-height;
+}
+
+.megamenu-skin-friendly {
+  background-color: #F8FA90;
+}
+
+#content-area {
+  display: block;
+}
+
+
+
+/*
+* Front
+*/
+.front {
+
+}
+
+
+/*
+* Footer
+*/
+
+footer {
+  background-color: $theme-dark;
+  border-top: solid $theme-color;
+  border-top-width: $base-line-height/2;
+  text-align: center;
+}

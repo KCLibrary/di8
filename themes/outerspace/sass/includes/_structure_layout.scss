@@ -1,0 +1,444 @@
+/*
+* Structure, Susy columns, gids, responsive layouts, breakpoints.
+*/
+
+html {
+    box-sizing: border-box !important;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    display: block;
+    height: 100%;
+}
+
+.outerspace {
+    min-height: 100%;
+    padding-bottom: 500px; // Sticky footer: padding is footer height
+    display: block;
+    overflow: hidden;
+    background-color: #DAFFD8;
+    @include breakpoint($phone) {
+        padding-bottom: 100vh;
+    }
+}
+
+nav.main-menu {
+    background-color: $theme-color;
+}
+
+header.header {
+    background-color: $theme-dark;
+    .name-and-slogan {
+        @include span(18 of 18);
+        @include breakpoint($phone) {
+            @include span(full);        }
+    }
+    .logo {
+        //@include span(2 of 18 first);
+    }
+    .header-region {
+        position: relative;
+        @include span(full);
+        @include breakpoint($phone) {
+            @include span(full);
+        }
+    }
+}
+
+main {
+
+}
+
+section {
+    position: relative;
+}
+
+.section {
+    @include container(show);
+    padding-left: $base-line-height * 2;
+    padding-right: $base-line-height * 2;
+    padding-top: $base-line-height;
+    padding-bottom: $base-line-height;
+    @include breakpoint($tween) {
+        padding-left: $base-line-height;
+        padding-right: $base-line-height
+    }
+    @include breakpoint($phone) {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    border: solid 1px black;
+}
+
+.full-span, .no-sidebars .main {
+    @include span(18 of 18);
+}
+
+footer {
+    clear: both;
+    color: white;
+    padding: $base-line-height 0;
+    @include breakpoint($phone) {
+        min-height: 100vh;
+    }
+    position: relative;
+    z-index: 10;
+    min-height: 500px; //.outerspace has a corrsponding bottom padding.
+    margin-top: -500px;
+}
+
+.admin-tools {
+    padding-top: $base-line-height / 2;
+    background-color: $gray-5;
+    width: 100%;
+    opacity: .9;
+}
+.not-logged-in {
+    .admin-tools {
+        display: none;
+    }
+}
+
+.not-front {
+    .page {
+        padding-bottom: $base-line-height;
+    }
+}
+
+section:after, .page:after, .main:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.breadcrumb.nav {
+    padding-bottom: $base-line-height;
+}
+
+
+/*
+* Layout
+*/
+
+.sidebar-first {
+    .main {
+        @include span(13 of 18);
+        @include breakpoint($phone) {
+            @include span(18 of 18);
+        }
+    }
+    aside#sidebar-first {
+        @include span(5 of 18 first);
+        padding-bottom: 999999px;
+        margin-bottom: -999999px;
+        @include breakpoint($phone) {
+            @include span(18 of 18);
+        }
+    }
+}
+
+.both-sidebars {
+    .main {
+        @include span(10 of 18);
+    }
+    aside#sidebar-first {
+        @include span(4 of 18 first);
+        background-color: $theme-tint;
+        padding-top: $margin;
+        padding-bottom: 999999px;
+        margin-bottom: -999999px;
+    }
+    aside#sidebar-second {
+        @include span(4 of 18 last);
+        background-color: $theme-tint;
+        padding-top: $margin;
+        padding-bottom: 999999px;
+        margin-bottom: -999999px;
+    }
+}
+
+.sidebar-second {
+    .main {
+        @include span(13 of 18);
+        @include breakpoint($phone) {
+            @include span(18 of 18);
+        }
+    }
+    aside#sidebar-second {
+        @include span(5 of 18 last);
+        padding-bottom: 999999px;
+        margin-bottom: -999999px;
+        @include breakpoint($phone) {
+            @include span(18 of 18);
+        }
+    }
+}
+
+
+
+/*
+* Grids and collumns
+*/
+
+.grid-item {
+        img {
+        width: 100%;
+        height: auto;
+    }
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+.grid-of-2, .grid-of-3, .grid-of-4, .grid-of-6 {
+    clear: both;
+
+}
+.grid-of-2:after, .grid-of-3:after, .grid-of-4:after, .grid-of-6:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.grid-of-2, .grid-of-3, .grid-of-4, .grid-of-6 {
+    content: "";
+    display: table;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+@include breakpoint($phone) {
+    .grid-of-3 {
+        .grid-item {
+            clear: both !important;
+            @include span(18 of 18);
+            padding-bottom: $base-line-height;
+        }
+        .grid-item:nth-child(3n+3) {
+            @include span(18 of 18);
+        }
+    }
+    .views-grid {
+        .views-row {
+            @include span(full nest);
+            border-bottom: solid 1px $gray-5;
+            padding-bottom: $base-line-height / 2;
+        }
+    }
+}
+
+@include breakpoint($tween) {
+    .grid-of-2 {
+        .grid-item {
+            @include gallery(9 of 18);
+            margin-bottom: gutter(10);
+        }
+    }
+    .grid-of-3 {
+        .grid-item {
+            @include gallery(9 of 18);
+        }
+        .grid-item:nth-child(3n+3) {
+            width: 100%;
+            clear: both;
+            margin-top: $base-line-height;
+            padding-top: $base-line-height;
+            padding-bottom: $base-line-height;
+        }
+    }
+    .views-grid {
+        .views-row {
+            @include span(2 of 4 nest $nested_layout);
+            &:nth-child(2n){
+                @include last();
+                margin-right: 0px !important;
+            }
+            &:nth-child(2n+1){
+                clear:left
+            }
+        }
+    }
+}
+
+@include breakpoint($desktop) {
+    .grid-of-2 {
+        .grid-item {
+            @include gallery(9 of 18 nest $nested_layout);
+            margin-bottom: gutter(10);
+        }
+        &:nth-child(2n){
+            margin-right: 0px !important;
+        }
+        &:nth-child(2n+1){
+            clear:left
+        }
+    }
+    .grid-of-3 {
+        .grid-item {
+            @include gallery(6 of 18 nest $nested_layout);
+            margin-bottom: gutter(10);
+        }
+        &:nth-child(3n){
+            @include last();
+            margin-right: 0px !important;
+        }
+        &:nth-child(3n+1){
+            clear:left
+        }
+    }
+    .grid-of-4 {
+        .grid-item {
+            @include span(1 of 4 nest $nested_layout_4);
+            margin-bottom: gutter(10);
+            &:nth-child(4n){
+                @include last();
+                margin-right: 0px !important;
+            }
+            &:nth-child(4n+1){
+                clear:left
+            }
+        }
+    }
+    .grid-of-6 {
+        .grid-item {
+            @include gallery (2 of 12 nest $nested_layout);
+            margin-bottom: gutter(10);
+        }
+        &:nth-child(6n){
+            @include last();
+            margin-right: 0px !important;
+        }
+        &:nth-child(6n+1){
+            clear:left
+        }
+    }
+    .views-grid {
+        .views-row {
+            @include span(1 of 4 nest $nested_layout_4);
+            &:nth-child(4n){
+                @include last();
+                margin-right: 0px !important;
+            }
+            &:nth-child(4n+1){
+                clear:left
+            }
+        }
+    }
+}
+
+@include breakpoint($big) {
+    .grid-of-2 {
+        .grid-item {
+            @include gallery(9 of 18);
+            margin-bottom: gutter(10);
+        }
+    }
+    .grid-of-3 {
+        .grid-item {
+            @include gallery(6 of 18);
+            margin-bottom: gutter(10);
+        }
+    }
+    .grid-of-4 {
+        .grid-item {
+            @include span(1 of 4 nest $nested_layout_4);
+            margin-bottom: gutter(10);
+            &:nth-child(4n){
+                @include last();
+                margin-right: 0px !important;
+            }
+            &:nth-child(4n+1){
+                clear:left
+            }
+        }
+    }
+    .grid-of-6 {
+        .grid-item {
+            @include gallery (2 of 12 nest);
+            margin-bottom: gutter(10);
+        }
+    }
+    .views-grid {
+        .views-row {
+            @include span(1 of 4 nest $nested_layout_4);
+            &:nth-child(4n){
+                @include last();
+                margin-right: 0px !important;
+            }
+            &:nth-child(4n+1){
+                clear:left
+            }
+        }
+    }
+}
+
+
+/*
+* Display Suite
+*/
+
+.ds-2col > .group-left {
+    @include span(9 of 18 nest border-box);
+    padding-right: $base-line-height / 2;
+    @include breakpoint($phone) {
+        @include span(18 of 18 nest border-box);
+        padding-right: 0px;
+        margin-bottom: $base-line-height;
+    }
+}
+
+.ds-2col > .group-right {
+    @include span(9 of 18 nest border-box);
+    padding-left: $base-line-height / 2;
+    @include breakpoint($phone) {
+        padding-left: 0px;
+        @include span(18 of 18 nest border-box);
+    }
+}
+
+.ds-2col-stacked {
+     .group-header {
+         @include span(full);
+     }
+     .group-left {
+         @include span(9 of 18 nest border-box);
+         padding-right: $base-line-height / 2;
+         @include breakpoint($phone) {
+             @include span(18 of 18 nest border-box);
+             padding-right: 0px;
+             margin-bottom: $base-line-height;
+         }
+     }
+     .group-right {
+         @include span(9 of 18 nest border-box);
+         padding-left: $base-line-height / 2;
+         @include breakpoint($phone) {
+             padding-left: 0px;
+             @include span(18 of 18 nest border-box);
+         }
+     }
+     .group-footer {
+         @include span(full);
+     }
+    @include breakpoint($phone) {
+        .group-header {
+            @include span(full);
+        }
+        .group-left {
+            @include span(full);
+        }
+        .group-right {
+            @include span(full);
+        }
+        .group-footer {
+            @include span(full);
+        }
+    }
+}

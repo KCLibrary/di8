@@ -1,0 +1,246 @@
+/*
+* Styles, Standard tags, Global
+*/
+
+html, body {
+  line-height: $base-line-height;
+  font-family: $lato;
+  font-size: 16.64px;
+}
+
+a {
+    text-decoration: none;
+    color: $theme-shade;
+  &:hover {
+    color: $theme-dark;
+  }
+}
+
+p {
+    @include plumber(
+            $leading-top: 0,
+            $leading-bottom: 1
+    );
+}
+
+blockquote {
+  @include plumber(
+          $font-size: .8,
+          $leading-top: 0,
+          $leading-bottom: 1
+  );
+  clear: both;
+  background-color: $gray-9;
+  font-style: italic;
+  padding: $base-line-height;
+  border-left: solid 2px $theme-color;
+  p:first-of-type {
+       padding-top: 0;
+     }
+  p:last-of-type {
+    padding-bottom: 0;
+  }
+  margin-bottom: $base-line-height / 2;
+}
+
+.plumber { // wraper for node fields addeded to field.tpl.php
+  display: block;
+  @include plumber(
+          $leading-top: 0,
+          $leading-bottom: 0
+  );
+}
+
+.plumber p { // override nested paragraph for .plumber
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+h1 {
+  font-family: $headline;
+    @include plumber(
+            $font-size: 1.15,
+            $line-height: 1,
+            $leading-top: 0,
+            $leading-bottom: 0
+    );
+    @include breakpoint($phone) {
+        @include plumber(
+                $font-size: 1.75,
+                $line-height: 2,
+                $leading-top: 0
+        );
+        padding-top: 15px;
+    }
+}
+.page-title h1{
+  text-transform: uppercase;
+  @include plumber(
+          $font-size: 1.15,
+          $line-height: 1,
+          $leading-top: 0,
+          $leading-bottom: 1
+  );
+  @include breakpoint($phone) {
+    @include plumber(
+            $font-size: 1.75,
+            $line-height: 2,
+            $leading-top: 0
+    );
+    padding-top: 15px;
+  }
+}
+
+h2 {
+  font-family: $headline;
+    @include plumber(
+            $font-size: 1.25,
+            $line-height: 2,
+            $leading-top: 1,
+            $leading-bottom: 0
+    );
+    @include breakpoint($phone) {
+        @include plumber(
+                $font-size: 1.15,
+                $line-height: 2,
+                $leading-bottom: 0
+        );
+        padding-top: 15px;
+    }
+}
+
+h3 {
+    @include plumber(
+            $font-size: 1,
+            $leading-top: 0,
+            $leading-bottom: 1
+    );
+    color: black;
+    @include breakpoint($phone) {
+        @include plumber(
+                $font-size: .75
+        );
+    }
+}
+h4 {
+  @include plumber(
+          $font-size: .8,
+          $leading-top: 0,
+          $leading-bottom: 1
+  );
+  @include breakpoint($phone) {
+    @include plumber(
+            $font-size: .75
+    );
+  }
+}
+/*
+ul, ol {
+  display: block;
+  @include plumber(
+          $font-size: .6,
+          $leading-top: 0,
+          $leading-bottom: 1,
+          $line-height: 1
+  );
+  li {
+    display: list-item;
+    @include plumber(
+          $font-size: .6,
+          $leading-top: 0,
+          $leading-bottom: 0,
+          $line-height: 1
+    );
+    @include breakpoint($phone) {
+      @include plumber(
+              $leading-top: 0,
+              $leading-bottom: 0,
+              $line-height: 1
+      );
+    }
+  }
+} */
+
+.views-field {
+  @include plumber(
+          $font-size: .6,
+          $leading-top: 0,
+          $leading-bottom: 0,
+          $line-height: 1
+  );
+}
+
+img {
+    display: block;
+    // width: 100%;
+}
+.img img {
+  width: 100%;
+  height: auto;
+  clear: both;
+}
+.views-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+code {
+    @include plumber(
+            $font-size: .75,
+            $line-height: 1,
+            $leading-top: 0,
+            $leading-bottom: 0
+    );
+}
+
+.field .field-label {
+  font-weight: 600;
+}
+
+.full-sapn div.breadcrumb {
+  @include plumber(
+          $font-size: .75,
+          $line-height: 1,
+          $leading-top: 0,
+          $leading-bottom: 1
+  );
+}
+
+
+.item-list {
+  clear: both;
+
+  ul.pager {
+    text-align: right;
+    padding: 5px 0;
+    position: relative;
+
+    li {
+      margin: 0;
+      padding: 0;
+      display: inline;
+
+      &.pager-current {
+        padding: 5px 8px;
+        color: $highlight;
+      }
+      &.pager-last {
+      }
+
+      a {
+        padding: 5px 8px;
+        margin: 0;
+      }
+    }
+  }
+}
+.box {
+  clear: both;
+  margin-bottom: $base-line-height;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

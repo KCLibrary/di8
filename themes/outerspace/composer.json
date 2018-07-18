@@ -1,0 +1,15 @@
+{
+  "name": "jeffwpetersen/KCBASIC_8",
+  "description": "KC Basic Drupal Theme",
+  "type": "drupal-theme",
+  "homepage": "https://github.com/",
+  "authors": [
+    {
+      "name": "Jeff Petersen",
+      "homepage": "https://www.juniperstudio.com",
+      "role": "Maintainer"
+    }
+  ],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev"
+}

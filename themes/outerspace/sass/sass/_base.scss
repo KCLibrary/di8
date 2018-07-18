@@ -1,0 +1,62 @@
+@import "susybase";
+@import "vendor/plumber"; // Baseline
+@import "breakpoint"; // Add Breakpoint
+
+//
+// Breakpoints.
+//
+
+$phone: 1px 568px;
+$tween: 569px 1366px;
+$desktop: 1367px 2303px;
+$big: 2304px;
+
+$base-font-size: 18px; // The font size set on the root html element.
+$base-line-height: 26px; // This line-height determines the basic unit of vertical rhythm.
+
+//
+// Plumber mixin for baseline adjustments.
+//
+
+@include plumber-set-defaults(
+        $grid-height: $base-line-height, // $base-line-height
+        $baseline: 0.113000, // https://jamonserrano.github.io/plumber-sass/baselines/
+        $font-size: .64,
+        $line-height: 1,
+        $leading-top: 1,
+        $leading-bottom: 1
+);
+
+$indent-amount: 30px; // The amount lists, blockquotes and comments are indented.
+$margin: 24px; //Standard Margins
+
+
+$lato: Lato, Arial, Helvetica, "Nimbus Sans L", sans-serif;
+$headline: "Open Sans", sans-serif;
+$opensans: "Open Sans", Lato, Arial, Helvetica, sans-serif;
+$courier: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+
+
+//
+// Colors, etc.
+//
+
+$theme-color: #A7F4FF;
+$theme-tint: #FCCFEC;
+$theme-shade: #69C166;
+$theme-dark: #D4C4F4;
+$theme-comp: #F0EBBF;
+
+$border: #333;
+$pink: #FF1493;
+$highlight: #FF1493;
+
+$gray-1: #191919;
+$gray-2: #323232;
+$gray-3: #4c4c4c;
+$gray-4: #666666;
+$gray-5: #7f7f7f;
+$gray-6: #999999;
+$gray-7: #b2b2b2;
+$gray-8: #cccccc;
+$gray-9: #f3f3f3;

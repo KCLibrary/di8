@@ -1,0 +1,571 @@
+@import "sass/base";
+
+
+/*
+* Fonts
+*/
+
+.headline {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: $headline;
+}
+
+.lato-regular {
+  font-family: $lato !important;
+}
+
+.lato {
+  font-family: $lato !important;
+}
+
+.lato-regular-italic, em {
+  font-family: $lato !important;
+  font-style: italic !important;
+}
+.lato-italic, em {
+  font-family: $lato !important;
+  font-style: italic !important;
+}
+
+.lato-bold {
+  font-family: $lato !important;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.lato-bold-italic {
+  font-family: $lato !important;
+  font-weight: bold !important;
+  font-style: italic;
+}
+
+.lato-light {
+  font-family: lato !important;
+  font-weight: 300;
+}
+
+.lato-light-italic {
+  font-family: lato !important;
+  font-style: italic;
+  font-weight: 300;
+}
+
+strong {
+  font-weight: bold;
+}
+strong em, em strong {
+  font-weight: bold !important;
+  font-style: italic;
+}
+
+
+/*
+* Style Layout
+*/
+
+
+
+
+.clear {
+  clear: both;
+  height: 0px;
+}
+
+.border {
+  border: 1px solid $border !important;
+  clear: both;
+}
+.border-bottom {
+  border-bottom: solid 1px $border !important;
+  padding-bottom: $base-line-height;
+  margin-bottom: $base-line-height;
+}
+.border-top {
+  border-bottom: solid 1px $border !important;
+}
+.border-left {
+  border-left: solid 1px $border !important;
+}
+
+.break {
+  border-bottom: 2px solid $theme-color !important;
+  padding-bottom: $base-line-height;
+  margin: $base-line-height 0;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.inset {
+  padding: $base-line-height;
+  margin: $base-line-height;
+  border: solid 1px $border;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padding {
+  padding: $base-line-height;
+}
+.padding-top {
+  padding-top: $base-line-height !important;
+}
+.padding-bottom {
+  padding-bottom: $base-line-height !important;
+}
+.padding-left {
+  padding-left: $base-line-height !important;
+}
+.margin {
+  margin: $base-line-height;
+}
+.margin-top {
+  margin-top: $base-line-height !important;
+}
+.margin-bottom {
+  margin-bottom: $base-line-height !important;
+}
+.margin-left {
+  margin-left: $base-line-height !important;
+}
+.margin-bottom-none {
+  margin-bottom:0px !important;
+}
+.table {
+  display: table;
+  width: 100%;
+}
+.table-cell {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+.block {
+  display: block;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/*
+* Style Color
+*/
+
+.theme, .theme-color {
+  color: $theme-color;
+}
+
+.tint {
+  color: $theme-tint;
+}
+
+.pink {
+  color: $pink;
+}
+
+.white {
+  color: #fff !important;
+}
+
+.black {
+  color: #000 !important;
+}
+
+.gray-1 {
+  color: $gray-1
+}
+
+.gray-2 {
+  color: $gray-2
+}
+
+.gray-3 {
+  color: $gray-3
+}
+
+.gray-4 {
+  color: $gray-4
+}
+
+.gray-5 {
+  color: $gray-5
+}
+
+.gray-6 {
+  color: $gray-6
+}
+
+.gray-7 {
+  color: $gray-7
+}
+
+.lighter {
+  font-weight: lighter !important;
+}
+
+/*
+* Float
+*/
+
+
+.auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.floatright, .float-right, .figure-right {
+  margin: 0 0 $base-line-height $base-line-height;
+  margin-top: $base-line-height / 2;
+  float: right;
+  clear: both;
+  box-sizing: border-box;
+  display: block;
+  @include breakpoint($phone) {
+    margin: 0;
+    float: none;
+  }
+  img {
+    display: block;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.floatleft, .float-left, .figure-left {
+  float: left;
+  margin: 0 $base-line-height $base-line-height 0;
+  margin-top: $base-line-height / 2;
+  clear: both;
+  box-sizing: border-box;
+  display: block;
+  @include breakpoint($phone) {
+    margin: 0;
+    float: none;
+  }
+  img {
+    display: block;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+figure {
+  margin: $base-line-height;
+}
+
+.figure-right, .figure-left {
+  width: 50%;
+  @include breakpoint($phone) {
+    float: none;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// make the widget figure tag work...
+figure.figure-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.figure-center{
+  figure {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  figcaption {
+    text-align: center;
+    padding: $base-line-height/2 0;
+  }
+
+}
+figcaption {
+  font-style: italic;
+}
+
+figure.image-captioned.figure-center:after {
+  content: url('../images/line.svg');
+}
+
+.block-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*
+* Widths
+*/
+
+
+
+.fifty, .one-half, .onehalf {
+  width: 50% !important;
+  @include breakpoint($phone) {
+    max-width: 90%;
+    width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.twentyfive, .twenty-five, .one-fourth, .onefourth {
+  width: 25% !important;
+  @include breakpoint($tween) {
+    max-width: 50%;
+    width: 50% !important;
+  }
+  @include breakpoint($phone) {
+    max-width: 80%;
+    width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.onethird, .one-third {
+  width: 33.32% !important;
+  @include breakpoint($phone) {
+    max-width: 80%;
+    width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.center-width {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  @include breakpoint($phone) {
+    max-width: 95%;
+  }
+  @include breakpoint($tween) {
+    max-width: 90%;
+  }
+  ul.menu-list {
+    width: 100%;
+  }
+}
+
+
+
+/*
+* Caption
+*/
+
+.caption {
+  margin-top:  $base-line-height / 4;
+}
+.caption.inset {
+  display: block;
+  margin: $base-line-height / 4;
+  padding: 0;
+  border: none;
+}
+
+
+/*
+* Style Color
+*/
+
+.bold {
+  font-weight: bold;
+}
+.center {
+  text-align: center !important;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+
+/*
+* Utility
+*/
+
+.skip {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+
+a.skip:active,
+a.skip:focus,
+a.skip:hover {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+.display-none {
+  display: none;
+}
+
+/*
+* lsit
+*/
+
+.hlist {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: $headline;
+  list-style-type: none;
+  text-align: center;
+  margin-bottom: $base-line-height * 2;
+  padding-bottom: $base-line-height * 2;
+  padding-left: 0px;
+  li {
+    @include plumber(
+            $font-size: .85,
+            $line-height: 1,
+            $leading-top: 0,
+            $leading-bottom: 0
+    );
+    line-height: $base-line-height / 2 + $base-line-height;
+    @include breakpoint($phone) {
+      @include plumber(
+              $font-size: .65,
+              $line-height: 1,
+              $leading-top: 0,
+              $leading-bottom: 1
+      );
+    }
+  }
+  p {
+    padding-top: 0;
+  }
+}
+
+.section-header {
+  width: 100%;
+  padding-top: $base-line-height * 2;
+  padding-bottom: $base-line-height * 2;
+  margin: $base-line-height 0;
+  background-color: $theme-dark;
+  color: $theme-color;
+  text-transform: uppercase;
+}
+
+.button {
+  padding: 5px 10px;
+  border: solid 1px $theme-color;
+  display: inline-block;
+  margin: $base-line-height;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  &:hover {
+    background-color: $gray-8;
+    color: $theme-dark;
+  }
+}
+
+/*
+* Theme
+*/
+
+.double-space {
+  @include plumber(
+          $font-size: 1,
+          $line-height: 2,
+          $leading-top: 1,
+          $leading-bottom: -1
+  );
+}
+
+.triple-space {
+  @include plumber(
+          $font-size: 2.25,
+          $line-height: 3,
+          $leading-bottom: 0,
+          $leading-top: 0
+  );
+  @include breakpoint($phone) {
+    @include plumber(
+            $font-size: 1.75,
+            $line-height: 2,
+            $leading-bottom: 1,
+            $leading-top: 0
+    );
+  }
+}
+
+.space {
+  height: $base-line-height;
+}
+
+.title {
+  h1 {
+    color: $gray-9;
+    a {
+      color: #ffffff;
+    }
+  }
+}
+
+.half-space p {
+  @include plumber(
+          $font-size: 1,
+          $line-height: 1,
+          $leading-top: 0,
+          $leading-bottom: 1
+  );
+  line-height: 35px;
+  padding-top: 21px;
+}
+
+.white-content {
+  background-color: #FFFFFF;
+}
+
+.callout {
+  padding: 0;
+  padding-top: $base-line-height / 2;
+  padding-bottom: $base-line-height / 2;
+  margin: $base-line-height;
+  border: solid 3px $theme-color;
+  clear: both;
+  text-align: center;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold !important;
+  div {
+    padding: $base-line-height / 2;
+    border-top: solid 2px $theme-color;
+    border-bottom: solid 2px $theme-color;
+  }
+  h2, h3 {
+    padding-top: 0;
+    font-family: $headline;
+  }
+  @include breakpoint($phone) {
+    max-width: 100%;
+  }
+}
+

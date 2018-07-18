@@ -1,0 +1,40 @@
+@import "susy";
+
+$susy: (
+        columns: 18,
+        gutters: .74,
+        gutter-position:split,
+        container: 2304px,
+        debug: (
+                image: true,
+                color: rgba(#333, .1),
+                output: background,
+                toggle: top right,
+        ),
+        use-custom: (
+                background-image: true,
+                background-options: false,
+                box-sizing: true,
+                clearfix: false,
+                rem: true,
+        )
+);
+
+$nested_layout_4: (
+        gutter-position: after,
+        columns: 4,
+        gutters: 15px/120px,
+        output: isolate,
+        debug: (
+                image: true,
+        ),
+);
+$nested_layout: (
+        gutter-position: after,
+        columns: 18,
+        gutters: 1,
+        output: isolate,
+        debug: (
+                image: true,
+        ),
+);

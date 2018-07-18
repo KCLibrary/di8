@@ -1,0 +1,65 @@
+name: kcbasic
+type: profile
+description: 'KC Basic for migration.'
+core: 8.x
+
+# Optional: Declare your installation profile as a distribution
+# This will make the installer auto-select this installation profile.
+# The distribution_name property is used in the installer and other places as
+# a label for the software being installed.
+
+
+# Required modules
+# Note that any dependencies of the modules listed here will be installed automatically.
+dependencies:
+  - node
+  - history
+  - block
+  - block_content
+  - color
+  - config
+  - comment
+  - contextual
+  - contact
+  - quickedit
+  - help
+  - image
+  - options
+  - path
+  - taxonomy
+  - dblog
+  - search
+  - shortcut
+  - toolbar
+  - field_ui
+  - file
+  - rdf
+  - views
+  - views_ui
+  - editor
+  - ckeditor
+  - migrate
+  - migrate_drupal
+  - migrate_drupal_ui
+  - migrate_upgrade
+  - migrate_tools
+  - migrate_manifest
+  - migrate_plus
+  - field_group
+  - field_group_migrate
+  - office_hours
+  - address
+  - menu_link_content
+  - menu_ui
+  - language
+  - pathauto
+  - token
+  - admin_toolbar
+
+# List any themes that should be installed as part of the installation
+# profile installation.
+# Note that this will not set any theme as the default theme.
+themes:
+  - bartik
+  - seven
+  - kcbasic
