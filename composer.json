@@ -8,9 +8,12 @@
         "wikimedia/composer-merge-plugin": "^1.4",
         "drupal/address": "~1.0",
         "drupal/office_hours": "^1.0",
-        "drupal/migrate_plus": "^8.x-4.0-beta3",
         "drupal/field_group": "^1.0",
-        "drupal/core": "^8.5"
+        "drupal/core": "^8.5",
+        "drupal/superfish": "^1.1",
+        "drupal/geolocation": "^1.11",
+        "drupal/geofield": "^1.0@beta",
+        "drupal/geocoder": "^2.0"
     },
     "minimum-stability": "beta",
     "prefer-stable": true,
