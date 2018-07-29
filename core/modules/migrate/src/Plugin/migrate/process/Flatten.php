@@ -43,15 +43,13 @@ use Drupal\migrate\Row;
  */
 class Flatten extends ProcessPluginBase {
 
-
   /**
    * Flatten nested array values to single array values.
    *
    * For example, [[1, 2, [3, 4]]] becomes [1, 2, 3, 4].
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    print_r($value);
-    iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($value)), FALSE);
+    return iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($value)), FALSE);
   }
 
 }
