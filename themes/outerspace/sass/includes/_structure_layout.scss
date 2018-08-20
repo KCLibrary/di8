@@ -27,6 +27,11 @@ html, body {
 
 nav.main-menu {
     background-color: $theme-dark;
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 header.header {
@@ -47,18 +52,31 @@ header.header {
             @include span(full);
         }
     }
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 main {
-
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 section {
     position: relative;
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 .section {
-    @include container(show);
     padding-left: $base-line-height * 2;
     padding-right: $base-line-height * 2;
     //padding-top: $base-line-height;
@@ -75,6 +93,19 @@ section {
 
 .full-span, .no-sidebars .main {
     @include span(18 of 18);
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.highlighted {
+
+}
+
+.page-main {
+    margin-top: $base-line-height;
 }
 
 footer {
@@ -108,11 +139,6 @@ footer {
     }
 }
 
-section:after, .page:after, .main:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 
 .breadcrumb.nav {
     padding-bottom: $base-line-height;

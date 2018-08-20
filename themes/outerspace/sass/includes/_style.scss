@@ -94,7 +94,7 @@ h1 {
 h2 {
   font-family: $headline;
     @include plumber(
-            $font-size: 1.25,
+            $font-size: 1,
             $line-height: 2,
             $leading-top: 1,
             $leading-bottom: 0
@@ -111,7 +111,7 @@ h2 {
 
 h3 {
     @include plumber(
-            $font-size: 1,
+            $font-size: .8,
             $leading-top: 0,
             $leading-bottom: 1
     );
@@ -124,7 +124,7 @@ h3 {
 }
 h4 {
   @include plumber(
-          $font-size: .8,
+          $font-size: .6,
           $leading-top: 0,
           $leading-bottom: 1
   );
