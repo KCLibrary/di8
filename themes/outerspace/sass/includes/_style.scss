@@ -94,15 +94,15 @@ h1 {
 h2 {
   font-family: $headline;
     @include plumber(
-            $font-size: 1,
-            $line-height: 2,
+            $font-size: .95,
+            $line-height: 1,
             $leading-top: 1,
             $leading-bottom: 0
     );
     @include breakpoint($phone) {
         @include plumber(
                 $font-size: 1.15,
-                $line-height: 2,
+                $line-height: 1,
                 $leading-bottom: 0
         );
         padding-top: 15px;

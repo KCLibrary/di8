@@ -961,7 +961,7 @@ blockquote p:last-of-type {
 
 /* line 59, ../sass/includes/_style.scss */
 h1 {
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
   font-size: 29.9px;
   line-height: 26px;
   margin-top: 0px;
@@ -1007,23 +1007,23 @@ h1 {
 
 /* line 94, ../sass/includes/_style.scss */
 h2 {
-  font-family: "oswald_bold", sans-serif;
-  font-size: 26px;
-  line-height: 52px;
-  margin-top: 0px;
-  padding-top: 16px;
-  padding-bottom: 10px;
-  margin-bottom: 0px;
+  font-family: "oswald", sans-serif;
+  font-size: 24.7px;
+  line-height: 26px;
+  margin-top: 26px;
+  padding-top: 3.5px;
+  padding-bottom: 22.5px;
+  margin-bottom: -26px;
 }
 @media (min-width: 1px) and (max-width: 568px) {
   /* line 94, ../sass/includes/_style.scss */
   h2 {
     font-size: 29.9px;
-    line-height: 52px;
-    margin-top: 0px;
-    padding-top: 14.5px;
-    padding-bottom: 11.5px;
-    margin-bottom: 0px;
+    line-height: 26px;
+    margin-top: 26px;
+    padding-top: 1.5px;
+    padding-bottom: 24.5px;
+    margin-bottom: -26px;
     padding-top: 15px;
   }
 }
@@ -1197,7 +1197,7 @@ code {
 .headline {
   text-transform: uppercase;
   font-weight: bold;
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
 }
 
 /* line 14, ../sass/includes/_styleguide.scss */
@@ -1720,7 +1720,7 @@ a.skip:hover {
 .hlist {
   margin-left: auto;
   margin-right: auto;
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
   list-style-type: none;
   text-align: center;
   margin-bottom: 52px;
@@ -1868,7 +1868,7 @@ a.skip:hover {
 /* line 563, ../sass/includes/_styleguide.scss */
 .callout h2, .callout h3 {
   padding-top: 0;
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
 }
 @media (min-width: 1px) and (max-width: 568px) {
   /* line 546, ../sass/includes/_styleguide.scss */
@@ -2250,7 +2250,7 @@ ul.sf-menu li {
 /* line 135, ../sass/includes/_forms.scss */
 .page-eform-submit-contact label {
   display: block;
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
   color: #A7F4FF;
   text-transform: uppercase;
 }
@@ -2281,7 +2281,7 @@ ul.sf-menu li {
   width: auto;
   color: #A7F4FF;
   text-transform: uppercase;
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
   border: solid 2px #A7F4FF;
 }
 /* line 169, ../sass/includes/_forms.scss */
@@ -2458,7 +2458,7 @@ div.tabs {
 */
 /* line 15, ../sass/includes/_superfish.scss */
 #block-mainmenu-2 .sf-style-none {
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
   text-transform: uppercase;
   float: left;
   margin: 0;
@@ -2721,13 +2721,13 @@ header .site-name {
   padding-bottom: 1px;
   margin-bottom: 0px;
   margin-top: 0px;
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
 }
 /* line 23, ../sass/outerspace.scss */
 header .site-name a {
-  font-family: "oswald_bold", sans-serif;
+  font-family: "oswald", sans-serif;
   color: #F0EBBF;
 }
 /* line 28, ../sass/outerspace.scss */
