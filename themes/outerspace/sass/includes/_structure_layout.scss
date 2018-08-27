@@ -17,7 +17,7 @@ html, body {
 
 .outerspace {
     min-height: 100%;
-    padding-bottom: 500px; // Sticky footer: padding is footer height
+    padding-bottom: 300px; // Sticky footer: padding is footer height
     display: block;
     overflow: hidden;
     @include breakpoint($phone) {
@@ -26,7 +26,7 @@ html, body {
 }
 
 nav.main-menu {
-    background-color: $theme-dark;
+    background-color: $theme-color;
     &:after {
         content: "";
         display: table;
@@ -36,7 +36,7 @@ nav.main-menu {
 
 header.header {
     padding-top: $base-line-height;
-    background-color: $theme-dark;
+    background-color: $theme-color;
     .name-and-slogan {
         @include span(18 of 18);
         @include breakpoint($phone) {
@@ -102,7 +102,10 @@ section {
 }
 
 .highlighted {
-
+    .messages {
+        margin-top: $base-line-height;
+        margin-bottom: $base-line-height;
+    }
 }
 
 .page-main {
@@ -110,16 +113,21 @@ section {
 }
 
 footer {
+    background-color:#999;
     clear: both;
-    color: white;
+    color:#FFF;
+    text-align:center;
     padding: $base-line-height 0;
     @include breakpoint($phone) {
         min-height: 100vh;
     }
     position: relative;
     z-index: 10;
-    min-height: 500px; //.outerspace has a corrsponding bottom padding.
-    margin-top: -500px;
+    min-height: 300px; //.outerspace has a corrsponding bottom padding.
+    margin-top: -300px + $base-line-height;
+    a {
+        color:#FFF;
+    }
 }
 
 .admin-tools {

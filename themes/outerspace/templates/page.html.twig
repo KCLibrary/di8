@@ -66,13 +66,13 @@
     <section class="section highlighted">
         <div id="highlighted" class="full-span">
             {{ page.highlighted }}
-
-            {{ page.breadcrumb }}
-
-            {{ page.help }}
         </div>
+        {% if page.help  %}
+            <div id="help" class="full-span">
+                {{ page.help }} No idea how to get the help info to show.
+            </div>
+        {% endif %}
     </section>
-
     <section class="section page-main">
 
         {% if page.sidebar_first %}

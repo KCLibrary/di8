@@ -2,6 +2,7 @@ global-styling:
   version: 1.0
   css:
     theme:
-      css/outerspace.css: {}
       css/normalize.css: {}
+      css/outerspace.css: {}
+
 

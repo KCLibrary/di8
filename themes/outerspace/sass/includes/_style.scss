@@ -58,33 +58,39 @@ blockquote {
 
 h1 {
   font-family: $headline;
+  text-transform: uppercase;
+  color: $theme-color;
+  border-bottom: solid 1px black;
     @include plumber(
             $font-size: 1.15,
-            $line-height: 1,
+            $line-height: 2,
             $leading-top: 0,
-            $leading-bottom: 0
+            $leading-bottom: 2
     );
     @include breakpoint($phone) {
         @include plumber(
-                $font-size: 1.75,
-                $line-height: 2,
+                $font-size: 1,
+                $line-height: 1,
                 $leading-top: 0
         );
         padding-top: 15px;
     }
 }
-.page-title h1{
+h1.page-title{
+  font-family: $headline;
   text-transform: uppercase;
+  color: $theme-color;
+  border-bottom: solid 1px black;
   @include plumber(
           $font-size: 1.15,
-          $line-height: 1,
+          $line-height: 2,
           $leading-top: 0,
           $leading-bottom: 1
   );
   @include breakpoint($phone) {
     @include plumber(
-            $font-size: 1.75,
-            $line-height: 2,
+            $font-size: 1,
+            $line-height: 1,
             $leading-top: 0
     );
     padding-top: 15px;
@@ -92,26 +98,29 @@ h1 {
 }
 
 h2 {
-  font-family: $headline;
-    @include plumber(
+  font-family: $lato;
+  text-transform: uppercase;
+  color: $theme-color;
+  @include plumber(
             $font-size: .95,
             $line-height: 1,
             $leading-top: 1,
-            $leading-bottom: 0
+            $leading-bottom: 1
     );
     @include breakpoint($phone) {
         @include plumber(
                 $font-size: 1.15,
                 $line-height: 1,
-                $leading-bottom: 0
+                $leading-bottom: 1
         );
         padding-top: 15px;
     }
 }
 
 h3 {
+  font-family: $lato;
     @include plumber(
-            $font-size: .8,
+            $font-size: .85,
             $leading-top: 0,
             $leading-bottom: 1
     );
@@ -124,9 +133,9 @@ h3 {
 }
 h4 {
   @include plumber(
-          $font-size: .6,
+          $font-size: .7,
           $leading-top: 0,
-          $leading-bottom: 1
+          $leading-bottom: 0
   );
   @include breakpoint($phone) {
     @include plumber(
@@ -243,4 +252,44 @@ code {
     display: table;
     clear: both;
   }
+}
+
+ul {
+  margin-top: 0px;
+}
+
+// Table styles.
+table {
+}
+
+tr.even,
+tr.odd {
+  td {
+    padding: 10px 5px;
+  }
+}
+
+tr.odd {
+  background-color: white;
+}
+
+// Code.
+pre, code, tt {
+  font: 1em "andale mono", "lucida console", monospace;
+  line-height: 1.5;
+}
+
+pre {
+  background-color: #efefef;
+  display: block;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #aaaaaa;
+}
+
+// Abbreviation.
+abbr {
+  border-bottom: 1px dotted #666666;
+  cursor: help;
+  white-space: nowrap;
 }

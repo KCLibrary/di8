@@ -67,6 +67,17 @@ header {
   display: block;
 }
 
+.block .view {
+  h2 {
+    @include plumber(
+            $font-size: .8,
+            $leading-top: 0,
+            $leading-bottom: 1
+    );
+    border-bottom: 0px;
+  }
+}
+
 
 
 /*
@@ -82,5 +93,120 @@ header {
 */
 
 footer {
-  text-align: center;
+  img {
+    display: inline-block;
+  }
+}
+
+
+/****************** map ********/
+
+.path-service-providers {
+  #views-exposed-form-map-page-1 {
+    .form-item-field-address-postal-code, .webform-type-checkboxes {
+      display:block;
+      width:100%;
+      clear:both;
+      legend, label {
+        font-size: 1.2em;
+        font-weight: 300;
+        color:$theme-color;
+        text-transform:uppercase;
+      }
+      .form-text {
+        width:auto !important;
+        height: 50px;
+        background: #FFF;
+        border:solid 1px #999;
+        color: #63717f;
+        padding-left: 15px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+      }
+    }
+    .form-submit {
+      margin:0px;
+      width:auto !important;
+      height: 50px;
+      background: #5CC4BE;
+      border:solid 1px #999;
+      font-size:1em;
+      color: #FFF;
+      padding:5px 15px !important;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      text-transform:uppercase;
+      float: left;
+      margin-bottom: $base-line-height;
+    }
+  }
+  #map-ismissing {
+    padding:20px;
+    background-color:#D6DF23;
+    position:absolute;
+    right:0px;
+    top:10px;
+    color:#000;
+    z-index:1;
+    font-family:oswald, "Trebuchet MS", Arial, Helvetica, sans-serif !important;
+    @include breakpoint($phone) {
+      position: relative;
+    }
+  }
+  .view-empty p {
+    padding:50px;
+    text-align:center;
+    font-size:2em;
+    background-color:#D6DF23;
+    color:#FFF;
+  }
+  .views-table {
+    td {
+      border-bottom: solid 1px $gray-5;
+    }
+  }
+}
+
+/***************  get involved *******/
+
+.di-table {
+  .pct {
+    font-family:oswald, "Trebuchet MS", Arial, Helvetica, sans-serif !important;
+    font-size:3em;
+    padding:20px !important;
+    vertical-align:middle;
+  }
+  td {
+    vertical-align:top;
+  }
+}
+
+
+
+#gray-table {
+  border-collapse: collapse;
+  border-style: hidden;
+  td {
+    border:20px solid #FFF !important;
+  }
+  .pct {
+    background-color:#5F5E5D;
+    color:#D6DF23;
+  }
+}
+#bluegreen-table {
+  border-collapse: collapse;
+  border-style: hidden;
+  text-align:center;
+  td {
+    border-left:20px solid #FFF !important;
+    border-right:20px solid #FFF !important;
+
+  }
+  .pct {
+    background-color:#5CC4BE;
+    color:#FFF;
+  }
 }
