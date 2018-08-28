@@ -1981,7 +1981,7 @@ a.skip:hover {
 }
 
 /* line 601, ../sass/includes/_styleguide.scss */
-.even-odd td {
+.even-odd td, .even-odd .views-row {
   padding: 13px;
 }
 /* line 604, ../sass/includes/_styleguide.scss */
@@ -1990,7 +1990,7 @@ a.skip:hover {
 }
 
 /* line 609, ../sass/includes/_styleguide.scss */
-.odd-even td {
+.odd-even td, .odd-even .views-row {
   padding: 13px;
 }
 /* line 612, ../sass/includes/_styleguide.scss */

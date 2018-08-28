@@ -598,7 +598,7 @@ a.skip:hover {
 }
 
 .even-odd {
-  td {
+  td, .views-row {
     padding: $base-line-height / 2;
   }
   tr:nth-child(even), .views-row:nth-child(even) {
@@ -606,7 +606,7 @@ a.skip:hover {
   }
 }
 .odd-even{
-  td {
+  td, .views-row {
     padding: $base-line-height / 2;
   }
   tr:nth-child(odd), .views-row:nth-child(odd) {
