@@ -597,3 +597,25 @@ a.skip:hover {
   }
 }
 
+.even-odd {
+  td {
+    padding: $base-line-height / 2;
+  }
+  tr:nth-child(even), .views-row:nth-child(even) {
+    background-color: $gray-9;
+  }
+}
+.odd-even{
+  td {
+    padding: $base-line-height / 2;
+  }
+  tr:nth-child(odd), .views-row:nth-child(odd) {
+    background-color: $gray-9;
+  }
+}
+
+.p0 {
+  p {
+    padding: 0px;
+  }
+}
