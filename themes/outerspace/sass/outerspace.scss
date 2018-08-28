@@ -107,7 +107,7 @@ footer {
       display:block;
       width:100%;
       clear:both;
-      legend, label {
+      legend, .form-item-field-address-postal-code label{
         font-size: 1.2em;
         font-weight: 300;
         color:$theme-color;

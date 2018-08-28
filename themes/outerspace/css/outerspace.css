@@ -2936,7 +2936,7 @@ footer img {
   clear: both;
 }
 /* line 110, ../sass/outerspace.scss */
-.path-service-providers #views-exposed-form-map-page-1 .form-item-field-address-postal-code legend, .path-service-providers #views-exposed-form-map-page-1 .form-item-field-address-postal-code label, .path-service-providers #views-exposed-form-map-page-1 .webform-type-checkboxes legend, .path-service-providers #views-exposed-form-map-page-1 .webform-type-checkboxes label {
+.path-service-providers #views-exposed-form-map-page-1 .form-item-field-address-postal-code legend, .path-service-providers #views-exposed-form-map-page-1 .form-item-field-address-postal-code .form-item-field-address-postal-code label, .path-service-providers #views-exposed-form-map-page-1 .webform-type-checkboxes legend, .path-service-providers #views-exposed-form-map-page-1 .webform-type-checkboxes .form-item-field-address-postal-code label {
   font-size: 1.2em;
   font-weight: 300;
   color: #5DC4BD;
