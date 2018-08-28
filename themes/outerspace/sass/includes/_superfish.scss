@@ -15,7 +15,6 @@ $superfish-1-background-color-level-fourth: $theme-color;
     .sf-style-none {
         font-family: $headline;
         text-transform: uppercase;
-        float: left;
         margin: 0;
         padding: 0;
         background-color: $superfish-1-background-color-level-first;
@@ -128,7 +127,8 @@ $superfish-1-background-color-level-fourth: $theme-color;
         &.sf-style-none a {
             background: $superfish-1-background-color-level-first;
             color: $superfish-1-color;
-            padding: 1em;
+            padding: 0;
+            margin: .75em 1em;
             &.sf-expanded {
                 background: $superfish-1-background-color-level-fourth;
                 font-weight: bold;

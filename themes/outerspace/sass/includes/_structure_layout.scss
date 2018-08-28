@@ -32,6 +32,10 @@ nav.main-menu {
         display: table;
         clear: both;
     }
+    @include breakpoint($phone) {
+        padding: $base-line-height/2 0;
+    }
+
 }
 
 header.header {

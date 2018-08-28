@@ -12,7 +12,7 @@ header {
     .site-name {
       @include plumber(
               $font-size: 1.4,
-              $line-height: 1,
+              $line-height: 2,
               $leading-top: 1,
               $leading-bottom: 1
       );
@@ -23,6 +23,14 @@ header {
       a {
         font-family: $headline;
         color: $theme-comp;
+      }
+      @include breakpoint($phone) {
+        @include plumber(
+                $font-size: 1,
+                $line-height: 1,
+                $leading-top: 1,
+                $leading-bottom: 1
+        );
       }
     }
     .site-slogan {
@@ -107,7 +115,7 @@ footer {
       display:block;
       width:100%;
       clear:both;
-      legend, .form-item-field-address-postal-code label{
+      legend {
         font-size: 1.2em;
         font-weight: 300;
         color:$theme-color;
