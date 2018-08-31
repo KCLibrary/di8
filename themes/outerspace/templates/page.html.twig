@@ -45,8 +45,10 @@
 #}
 <div class="outerspace">
     <header class="header section" role="banner">
-        <div id="header-region" class="full-span">
-            {{ page.header }}
+        <div class="max-width">
+            <div id="header-region" class="full-span">
+                {{ page.header }}
+            </div>
         </div>
     </header> <!-- /header -->
 
@@ -57,31 +59,35 @@
     #}
 
     <nav class="section main-menu">
-        <div class="full-span menu">
-            {{ page.navigation }}
-            {{ page.primary_menu }}
-            {{ page.secondary_menu }}
+        <div class="max-width">
+            <div class="full-span menu">
+                {{ page.navigation }}
+                {{ page.primary_menu }}
+                {{ page.secondary_menu }}
+            </div>
         </div>
     </nav>
     <section class="section highlighted">
-        <div id="highlighted" class="full-span">
-            {{ page.highlighted }}
-        </div>
-        {% if page.help  %}
-            <div id="help" class="full-span">
-                {{ page.help }} No idea how to get the help info to show.
+        <div class="max-width">
+            <div id="highlighted" class="full-span">
+                {{ page.highlighted }}
             </div>
-        {% endif %}
+            {% if page.help %}
+                <div id="help" class="full-span">
+                    {{ page.help }} No idea how to get the help info to show.
+                </div>
+            {% endif %}
+        </div>
     </section>
     <section class="section page-main">
+        <div class="max-width">
+            {% if page.sidebar_first %}
+                <aside id="sidebar-first" class="column sidebar first">
+                    {{ page.sidebar_first }}
+                </aside>
+            {% endif %}
 
-        {% if page.sidebar_first %}
-            <aside id="sidebar-first" class="column sidebar first">
-                {{ page.sidebar_first }}
-            </aside>
-        {% endif %}
-
-            <main id="page" role="main" class="full-span main">
+            <main id="page" role="main" class="main">
 
                 <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
@@ -90,17 +96,20 @@
                 </div>{# /.layout-content #}
             </main>
 
-        {% if page.sidebar_second %}
-            <aside id="sidebar-second" class="column sidebar second">
-                {{ page.sidebar_second }}
-            </aside>
-        {% endif %}
+            {% if page.sidebar_second %}
+                <aside id="sidebar-second" class="column sidebar second">
+                    {{ page.sidebar_second }}
+                </aside>
+            {% endif %}
+        </div>
     </section>
 </div>
 <footer class="section">
-    {% if page.footer %}
-        <div class="full-span" id="footer" role="contentinfo">
-            {{ page.footer }}
-        </div>
-    {% endif %}
+    <div class="max-width">
+        {% if page.footer %}
+            <div class="full-span" id="footer" role="contentinfo">
+                {{ page.footer }}
+            </div>
+        {% endif %}
+    </div>
 </footer>{# /.layout-container #}

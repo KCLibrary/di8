@@ -41,27 +41,11 @@ nav.main-menu {
 header.header {
     padding-top: $base-line-height;
     background-color: $theme-color;
-    .name-and-slogan {
-        @include span(18 of 18);
-        @include breakpoint($phone) {
-            @include span(full);        }
-    }
-    .logo {
-        //@include span(2 of 18 first);
-    }
-    .header-region {
-        position: relative;
-        @include span(full);
-        @include breakpoint($phone) {
-            @include span(full);
-        }
-    }
     &:after {
         content: "";
         display: table;
         clear: both;
     }
-    padding-bottom: $base-line-height;
 }
 
 main {
@@ -96,13 +80,19 @@ section {
     }
 }
 
-.full-span, .no-sidebars .main {
-    @include span(18 of 18);
+.full-span {
+    @include span(full);
     &:after {
         content: "";
         display: table;
         clear: both;
     }
+}
+
+.max-width {
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .highlighted {
