@@ -2,6 +2,11 @@
 @import "vendor/plumber"; // typography baseline assistant
 @import "breakpoint"; // Add Breakpoint mixin
 
+
+$max-width-of-site-content: 1400px;
+
+
+
 //
 // Breakpoints.
 //
