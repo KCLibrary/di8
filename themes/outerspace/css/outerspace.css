@@ -1731,15 +1731,22 @@ figure.image-captioned.figure-center:after {
   width: 100%;
 }
 
+/* line 395, ../sass/includes/_styleguide.scss */
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 /*
 * Caption
 */
-/* line 402, ../sass/includes/_styleguide.scss */
+/* line 407, ../sass/includes/_styleguide.scss */
 .caption {
   margin-top: 6.5px;
 }
 
-/* line 405, ../sass/includes/_styleguide.scss */
+/* line 410, ../sass/includes/_styleguide.scss */
 .caption.inset {
   display: block;
   margin: 6.5px;
@@ -1750,17 +1757,17 @@ figure.image-captioned.figure-center:after {
 /*
 * Style Color
 */
-/* line 417, ../sass/includes/_styleguide.scss */
+/* line 422, ../sass/includes/_styleguide.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 420, ../sass/includes/_styleguide.scss */
+/* line 425, ../sass/includes/_styleguide.scss */
 .center {
   text-align: center !important;
 }
 
-/* line 424, ../sass/includes/_styleguide.scss */
+/* line 429, ../sass/includes/_styleguide.scss */
 .underline-text {
   text-decoration: underline;
 }
@@ -1768,7 +1775,7 @@ figure.image-captioned.figure-center:after {
 /*
 * Utility
 */
-/* line 433, ../sass/includes/_styleguide.scss */
+/* line 438, ../sass/includes/_styleguide.scss */
 .skip {
   position: absolute;
   top: -1000px;
@@ -1779,7 +1786,7 @@ figure.image-captioned.figure-center:after {
   overflow: hidden;
 }
 
-/* line 443, ../sass/includes/_styleguide.scss */
+/* line 448, ../sass/includes/_styleguide.scss */
 a.skip:active,
 a.skip:focus,
 a.skip:hover {
@@ -1790,7 +1797,7 @@ a.skip:hover {
   overflow: visible;
 }
 
-/* line 453, ../sass/includes/_styleguide.scss */
+/* line 458, ../sass/includes/_styleguide.scss */
 .display-none {
   display: none;
 }
@@ -1798,7 +1805,7 @@ a.skip:hover {
 /*
 * lsit
 */
-/* line 461, ../sass/includes/_styleguide.scss */
+/* line 466, ../sass/includes/_styleguide.scss */
 .hlist {
   margin-left: auto;
   margin-right: auto;
@@ -1809,7 +1816,7 @@ a.skip:hover {
   padding-bottom: 52px;
   padding-left: 0px;
 }
-/* line 470, ../sass/includes/_styleguide.scss */
+/* line 475, ../sass/includes/_styleguide.scss */
 .hlist li {
   font-size: 22.1px;
   line-height: 26px;
@@ -1820,7 +1827,7 @@ a.skip:hover {
   line-height: 39px;
 }
 @media (min-width: 1px) and (max-width: 568px) {
-  /* line 470, ../sass/includes/_styleguide.scss */
+  /* line 475, ../sass/includes/_styleguide.scss */
   .hlist li {
     font-size: 16.9px;
     line-height: 26px;
@@ -1830,12 +1837,12 @@ a.skip:hover {
     margin-bottom: 0px;
   }
 }
-/* line 487, ../sass/includes/_styleguide.scss */
+/* line 492, ../sass/includes/_styleguide.scss */
 .hlist p {
   padding-top: 0;
 }
 
-/* line 492, ../sass/includes/_styleguide.scss */
+/* line 497, ../sass/includes/_styleguide.scss */
 .section-header {
   width: 100%;
   padding-top: 52px;
@@ -1846,7 +1853,7 @@ a.skip:hover {
   text-transform: uppercase;
 }
 
-/* line 502, ../sass/includes/_styleguide.scss */
+/* line 507, ../sass/includes/_styleguide.scss */
 .button {
   padding: 5px 10px;
   border: solid 1px #5DC4BD;
@@ -1856,7 +1863,7 @@ a.skip:hover {
   margin-right: auto;
   cursor: pointer;
 }
-/* line 510, ../sass/includes/_styleguide.scss */
+/* line 515, ../sass/includes/_styleguide.scss */
 .button:hover {
   background-color: #cccccc;
   color: #125b56;
@@ -1865,7 +1872,7 @@ a.skip:hover {
 /*
 * Theme
 */
-/* line 520, ../sass/includes/_styleguide.scss */
+/* line 525, ../sass/includes/_styleguide.scss */
 .double-space {
   font-size: 26px;
   line-height: 52px;
@@ -1875,7 +1882,7 @@ a.skip:hover {
   margin-bottom: -26px;
 }
 
-/* line 529, ../sass/includes/_styleguide.scss */
+/* line 534, ../sass/includes/_styleguide.scss */
 .triple-space {
   font-size: 58.5px;
   line-height: 78px;
@@ -1885,7 +1892,7 @@ a.skip:hover {
   margin-bottom: 0px;
 }
 @media (min-width: 1px) and (max-width: 568px) {
-  /* line 529, ../sass/includes/_styleguide.scss */
+  /* line 534, ../sass/includes/_styleguide.scss */
   .triple-space {
     font-size: 45.5px;
     line-height: 52px;
@@ -1896,21 +1903,21 @@ a.skip:hover {
   }
 }
 
-/* line 546, ../sass/includes/_styleguide.scss */
+/* line 551, ../sass/includes/_styleguide.scss */
 .space {
   height: 26px;
 }
 
-/* line 551, ../sass/includes/_styleguide.scss */
+/* line 556, ../sass/includes/_styleguide.scss */
 .title h1 {
   color: #f3f3f3;
 }
-/* line 553, ../sass/includes/_styleguide.scss */
+/* line 558, ../sass/includes/_styleguide.scss */
 .title h1 a {
   color: #ffffff;
 }
 
-/* line 559, ../sass/includes/_styleguide.scss */
+/* line 564, ../sass/includes/_styleguide.scss */
 .half-space p {
   font-size: 26px;
   line-height: 26px;
@@ -1922,12 +1929,12 @@ a.skip:hover {
   padding-top: 21px;
 }
 
-/* line 570, ../sass/includes/_styleguide.scss */
+/* line 575, ../sass/includes/_styleguide.scss */
 .white-content {
   background-color: #FFFFFF;
 }
 
-/* line 574, ../sass/includes/_styleguide.scss */
+/* line 579, ../sass/includes/_styleguide.scss */
 .callout {
   padding: 0;
   padding-top: 13px;
@@ -1941,43 +1948,43 @@ a.skip:hover {
   margin-right: auto;
   font-weight: bold !important;
 }
-/* line 586, ../sass/includes/_styleguide.scss */
+/* line 591, ../sass/includes/_styleguide.scss */
 .callout div {
   padding: 13px;
   border-top: solid 2px #5DC4BD;
   border-bottom: solid 2px #5DC4BD;
 }
-/* line 591, ../sass/includes/_styleguide.scss */
+/* line 596, ../sass/includes/_styleguide.scss */
 .callout h2, .callout h3 {
   padding-top: 0;
   font-family: "oswald", sans-serif;
 }
 @media (min-width: 1px) and (max-width: 568px) {
-  /* line 574, ../sass/includes/_styleguide.scss */
+  /* line 579, ../sass/includes/_styleguide.scss */
   .callout {
     max-width: 100%;
   }
 }
 
-/* line 601, ../sass/includes/_styleguide.scss */
+/* line 606, ../sass/includes/_styleguide.scss */
 .even-odd td, .even-odd .views-row {
   padding: 13px;
 }
-/* line 604, ../sass/includes/_styleguide.scss */
+/* line 609, ../sass/includes/_styleguide.scss */
 .even-odd tr:nth-child(even), .even-odd .views-row:nth-child(even) {
   background-color: #f3f3f3;
 }
 
-/* line 609, ../sass/includes/_styleguide.scss */
+/* line 614, ../sass/includes/_styleguide.scss */
 .odd-even td, .odd-even .views-row {
   padding: 13px;
 }
-/* line 612, ../sass/includes/_styleguide.scss */
+/* line 617, ../sass/includes/_styleguide.scss */
 .odd-even tr:nth-child(odd), .odd-even .views-row:nth-child(odd) {
   background-color: #f3f3f3;
 }
 
-/* line 618, ../sass/includes/_styleguide.scss */
+/* line 623, ../sass/includes/_styleguide.scss */
 .p0 p {
   padding: 0px;
 }

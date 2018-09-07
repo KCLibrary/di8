@@ -392,6 +392,11 @@ figure.image-captioned.figure-center:after {
     width: 100%;
   }
 }
+.center-block, .block-center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 
 
 
