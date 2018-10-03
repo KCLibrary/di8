@@ -14,6 +14,8 @@ use Drupal\webform\Utility\WebformElementHelper;
  */
 abstract class WebformCompositeBase extends FormElement implements WebformCompositeInterface {
 
+  use WebformCompositeFormElementTrait;
+
   /**
    * {@inheritdoc}
    */
@@ -27,7 +29,7 @@ abstract class WebformCompositeBase extends FormElement implements WebformCompos
         [$class, 'processAjaxForm'],
       ],
       '#pre_render' => [
-        [$class, 'preRenderCompositeFormElement'],
+        [$class, 'preRenderWebformCompositeFormElement'],
       ],
       '#title_display' => 'invisible',
       '#required' => FALSE,
@@ -251,6 +253,12 @@ abstract class WebformCompositeBase extends FormElement implements WebformCompos
       // Convert #placeholder to #empty_option for select elements.
       if (isset($composite_element['#placeholder']) && $element_plugin->hasProperty('empty_option')) {
         $composite_element['#empty_option'] = $composite_element['#placeholder'];
+      }
+
+      // Apply #select2 and #chosen to select elements.
+      if (isset($composite_element['#type']) && strpos($composite_element['#type'], 'select') !== FALSE) {
+        $select_properties = ['#select2' => '#select2', '#chosen' => '#chosen'];
+        $composite_element += array_intersect_key($element, $select_properties);
       }
 
       // Note: File uploads are not supported because uploaded file
