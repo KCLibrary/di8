@@ -1,0 +1,20 @@
+name: kcbasic
+type: theme
+description: KC Basic Standard Library Theme
+package: Other
+core: 8.x
+libraries:
+  - kcbasic/global-styling
+
+base theme: classy
+#Using Classy as a base theme https://www.drupal.org/theme-guide/8/classy
+
+regions:
+  header: Header
+  navigation: Navigation
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  sidebar_first: First Sidebar
+  sidebar_second: Second Sidebar
+  footer: Footer

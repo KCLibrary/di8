@@ -1,0 +1,346 @@
+/*
+* full width containers.
+*
+#header-full { background-color:#337ab4}
+#navigation-full { background-color:#337ab4}
+#page-full { background-color:#FFF}
+#footer-full { background-color:#337ab4}
+
+/*
+* partial width containers
+*
+
+#header {background-color:#337ab4}
+#navigation {background-color:#337ab4;}
+#page {background-color:#FFF}
+#footer {background-color:#337ab4}
+
+/*
+* full width containers.
+*/
+/* line 24, ../sass/theme.scss */
+#header-full {
+  background-color: #5DC4BD;
+}
+
+/* line 25, ../sass/theme.scss */
+#navigation-full {
+  background-color: #5DC4BD;
+}
+
+/* line 26, ../sass/theme.scss */
+#page-full {
+  background-color: #FFF;
+}
+
+/* line 27, ../sass/theme.scss */
+#footer-full {
+  background-color: #5DC4BD;
+}
+
+/*
+* partial width containers
+*/
+/* line 33, ../sass/theme.scss */
+#header {
+  background-color: #5DC4BD;
+}
+
+/* line 34, ../sass/theme.scss */
+#navigation {
+  background-color: #5DC4BD;
+}
+
+/* line 35, ../sass/theme.scss */
+#page {
+  background-color: #FFF;
+}
+
+/* line 36, ../sass/theme.scss */
+#footer {
+  background-color: #5DC4BD;
+}
+
+/* line 38, ../sass/theme.scss */
+.left-content {
+  width: 27.77778%;
+  float: left;
+}
+
+/* line 42, ../sass/theme.scss */
+.main-content {
+  width: 66.66667%;
+  float: right;
+}
+
+/*
+ * Sample SCSS for adding Superfish CSS to themes.
+ *
+ * Instructions:
+ *
+ * 1. Change the #YOUR-BLOCK-ID (below) to the ID of your Superfish block.
+ *
+ * 2. Add the SCSS to your theme.
+ *
+ * 3. Note that by removing the .sf-style-none, the style will be applied to the menu regardless of
+ *    the "Style" selected in the Superfish block configuration.
+ *
+ */
+/* line 70, ../sass/theme.scss */
+#block-mainmenu .sf-style-none {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+/* line 74, ../sass/theme.scss */
+#block-mainmenu .sf-style-none.sf-navbar {
+  width: 100%;
+  background: #5DC4BD;
+}
+/* line 78, ../sass/theme.scss */
+#block-mainmenu .sf-style-none ul {
+  padding-left: 0;
+}
+/* line 81, ../sass/theme.scss */
+#block-mainmenu .sf-style-none ul.sf-multicolumn li.sf-multicolumn-wrapper {
+  background: #008e7e;
+}
+/* line 83, ../sass/theme.scss */
+#block-mainmenu .sf-style-none ul.sf-multicolumn li.sf-multicolumn-wrapper li {
+  background: transparent;
+}
+/* line 89, ../sass/theme.scss */
+#block-mainmenu .sf-style-none a {
+  color: #FFF;
+  text-decoration: none;
+  padding: 0.75em 1em;
+  border-bottom: solid 3px #5DC4BD;
+}
+/* line 94, ../sass/theme.scss */
+#block-mainmenu .sf-style-none a.sf-with-ul {
+  padding-right: 2.25em;
+}
+/* line 97, ../sass/theme.scss */
+#block-mainmenu .sf-style-none a:focus {
+  background: #008e7e;
+  outline: 0;
+  text-decoration: none;
+  border-bottom: solid 3px white;
+}
+/* line 103, ../sass/theme.scss */
+#block-mainmenu .sf-style-none a:hover {
+  background: #008e7e;
+  outline: 0;
+  text-decoration: none;
+  border-bottom: solid 3px white;
+}
+/* line 109, ../sass/theme.scss */
+#block-mainmenu .sf-style-none a:active {
+  background: #008e7e;
+  outline: 0;
+  text-decoration: none;
+  border-bottom: solid 3px white;
+}
+/* line 117, ../sass/theme.scss */
+#block-mainmenu .sf-style-none span.nolink {
+  color: #FFF;
+  padding: 0.75em 1em;
+}
+/* line 120, ../sass/theme.scss */
+#block-mainmenu .sf-style-none span.nolink.sf-with-ul {
+  padding-right: 2.25em;
+}
+/* line 123, ../sass/theme.scss */
+#block-mainmenu .sf-style-none span.nolink:hover {
+  background: #008e7e;
+  outline: 0;
+}
+/* line 128, ../sass/theme.scss */
+#block-mainmenu .sf-style-none span.sf-description {
+  color: #FFF;
+  display: block;
+  font-size: 0.833em;
+  line-height: 1.5;
+  margin: 5px 0 0 5px;
+  padding: 0;
+}
+/* line 139, ../sass/theme.scss */
+#block-mainmenu .sf-style-none.rtl span.sf-description {
+  margin: 5px 5px 0 0;
+}
+/* line 142, ../sass/theme.scss */
+#block-mainmenu .sf-style-none.rtl span.nolink.sf-with-ul {
+  padding-left: 2.25em;
+  padding-right: 1em;
+}
+/* line 147, ../sass/theme.scss */
+#block-mainmenu .sf-style-none.rtl a.sf-with-ul {
+  padding-left: 2.25em;
+  padding-right: 1em;
+}
+/* line 152, ../sass/theme.scss */
+#block-mainmenu .sf-style-none li {
+  background: #5DC4BD;
+}
+/* line 154, ../sass/theme.scss */
+#block-mainmenu .sf-style-none li li {
+  background: #5DC4BD;
+}
+/* line 156, ../sass/theme.scss */
+#block-mainmenu .sf-style-none li li li {
+  background: #5DC4BD;
+}
+/* line 160, ../sass/theme.scss */
+#block-mainmenu .sf-style-none li:hover {
+  background: #008e7e;
+  outline: 0;
+}
+/* line 163, ../sass/theme.scss */
+#block-mainmenu .sf-style-none li:hover > ul {
+  top: 40px;
+}
+/* line 167, ../sass/theme.scss */
+#block-mainmenu .sf-style-none li.sfHover {
+  background: #008e7e;
+  outline: 0;
+}
+/* line 170, ../sass/theme.scss */
+#block-mainmenu .sf-style-none li.sfHover > ul {
+  top: 40px;
+}
+/* line 180, ../sass/theme.scss */
+#block-mainmenu div.sf-accordion-toggle.sf-style-none a {
+  background: #5DC4BD;
+  color: #FFF;
+  padding: 1em;
+}
+/* line 184, ../sass/theme.scss */
+#block-mainmenu div.sf-accordion-toggle.sf-style-none a.sf-expanded {
+  background: #008e7e;
+  font-weight: bold;
+}
+/* line 194, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl.sf-accordion li li a {
+  padding-left: auto;
+  padding-right: 2em;
+}
+/* line 199, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl.sf-accordion li li li a {
+  padding-left: auto;
+  padding-right: 3em;
+}
+/* line 204, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl.sf-accordion li li li li a {
+  padding-left: auto;
+  padding-right: 4em;
+}
+/* line 209, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl.sf-accordion li li li li li a {
+  padding-left: auto;
+  padding-right: 5em;
+}
+/* line 213, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl.sf-accordion li li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 5em;
+}
+/* line 218, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl.sf-accordion li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 4em;
+}
+/* line 223, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl.sf-accordion li li li span.nolink {
+  padding-left: auto;
+  padding-right: 3em;
+}
+/* line 228, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl.sf-accordion li li span.nolink {
+  padding-left: auto;
+  padding-right: 2em;
+}
+/* line 237, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.rtl ul.sf-multicolumn li.sf-multicolumn-wrapper ol li.sf-multicolumn-column {
+  float: right;
+}
+/* line 245, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li.sf-expanded {
+  background: #008e7e;
+}
+/* line 248, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li.sf-expanded > a {
+  font-weight: bold;
+}
+/* line 251, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li.sf-expanded > span.nolink {
+  font-weight: bold;
+}
+/* line 257, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li li a {
+  padding-left: 2em;
+}
+/* line 261, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li li li a {
+  padding-left: 3em;
+}
+/* line 265, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li li li li a {
+  padding-left: 4em;
+}
+/* line 269, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li li li li li a {
+  padding-left: 5em;
+}
+/* line 272, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li li li li li span.nolink {
+  padding-left: 5em;
+}
+/* line 276, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li li li li span.nolink {
+  padding-left: 4em;
+}
+/* line 280, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li li li span.nolink {
+  padding-left: 3em;
+}
+/* line 284, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li li span.nolink {
+  padding-left: 2em;
+}
+/* line 288, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none.sf-accordion li a.sf-accordion-button {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+/* line 298, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none ul.sf-multicolumn li.sf-multicolumn-wrapper ol {
+  margin: 0;
+  padding: 0;
+}
+/* line 301, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none ul.sf-multicolumn li.sf-multicolumn-wrapper ol li {
+  margin: 0;
+  padding: 0;
+}
+/* line 304, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none ul.sf-multicolumn li.sf-multicolumn-wrapper ol li.sf-multicolumn-column {
+  display: inline;
+  float: left;
+}
+/* line 310, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none ul.sf-multicolumn li.sf-multicolumn-wrapper a.menuparent {
+  font-weight: bold;
+}
+/* line 314, ../sass/theme.scss */
+#block-mainmenu .sf-menu.sf-style-none ul.sf-multicolumn li.sf-multicolumn-wrapper span.nolink.menuparent {
+  font-weight: bold;
+}
+/* line 321, ../sass/theme.scss */
+#block-mainmenu .sf-depth-1 {
+  text-transform: uppercase;
+  border-top-left-radius: .5em .5em;
+  border-top-right-radius: .5em .5em;
+}
