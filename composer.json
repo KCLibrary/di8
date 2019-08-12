@@ -8,7 +8,7 @@
         "wikimedia/composer-merge-plugin": "^1.4",
         "drupal/address": "~1.0",
         "drupal/office_hours": "^1.0",
-        "drupal/field_group": "^1.0",
+        "drupal/field_group": "^3.0",
         "drupal/superfish": "^1.1",
         "drupal/geolocation": "^1.11",
         "drupal/geofield": "^1.0@beta",
