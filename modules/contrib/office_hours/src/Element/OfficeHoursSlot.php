@@ -21,36 +21,30 @@ class OfficeHoursSlot extends OfficeHoursList {
   }
 
   /**
-   * Process an individual element.
-   *
-   * Build the form element. When creating a form using FAPI #process,
-   * note that $element['#value'] is already set.
+   * {@inheritdoc}
    */
   public static function processOfficeHoursSlot(&$element, FormStateInterface $form_state, &$complete_form) {
     // Fill with default data from a List element.
     $element = parent::processOfficeHoursSlot($element, $form_state, $complete_form);
     // @todo D8: $form_state = ...
     // @todo D8: $form = ...
-    // @todo D8: $this->t()
 
-    $maxdelta = $element['#field_settings']['cardinality_per_day'] - 1;
-    $daydelta = $element['#daydelta'];
-    if ($daydelta == 0) {
+    $max_delta = $element['#field_settings']['cardinality_per_day'] - 1;
+    $day_delta = $element['#daydelta'];
+    if ($day_delta == 0) {
       // This is the first block of the day.
       $label = $element['#dayname']; // Show Day name (already translated) as label.
-      $slot_style = '';
-      $slot_classes[] = 'office-hours-slot'; // Show the slot.
+      $element['#attributes']['class'][] = 'office-hours-slot'; // Show the slot.
     }
-    elseif ($daydelta > $maxdelta) {
+    elseif ($day_delta > $max_delta) {
       // Never show this illegal slot.
       // In case the number of slots per day was lowered by admin, this element
       // may have a value. Better clear it (in case a value was entered before).
       // The value will be removed upon the next 'Save' action.
       $label = '';
       // The following style is only needed if js isn't working.
-      $slot_style = 'style = "display:none;"';
       // The following class is the trigger for js to hide the row.
-      $slot_classes[] = 'office-hours-hide';
+      $element['#attributes']['class'][] = 'office-hours-hide';
 
       $element['#value'] = empty($element['#value'] ? [] : $element['#value']);
       $element['#value']['starthours'] = '';
@@ -60,31 +54,21 @@ class OfficeHoursSlot extends OfficeHoursList {
     elseif (!empty($element['#value']['starthours'])) {
       // This is a following block with contents.
       $label = t('and');
-      $slot_style = '';
-      $slot_classes[] = 'office-hours-slot'; // Show the slot.
-      $slot_classes[] = 'office-hours-more'; // Show add-link.
+      $element['#attributes']['class'][] = 'office-hours-slot'; // Show the slot.
+      $element['#attributes']['class'][] = 'office-hours-more'; // Show add-link.
     }
     else {
       // This is an empty following slot.
       $label = t('and');
-      $slot_style = 'style = "display:none;"';
-      $slot_classes[] = 'office-hours-hide'; // Hide the slot.
-      $slot_classes[] = 'office-hours-more'; // Add the add-link, in case shown by js.
+      $element['#attributes']['class'][] = 'office-hours-hide'; // Hide the slot.
+      $element['#attributes']['class'][] = 'office-hours-more'; // Add the add-link, in case shown by js.
     }
-    $element['#attributes'] = ['class' => $slot_classes];
-
-    // Copied from EntityListBuilder::buildOperations().
-    //$element['#value']['operations'] = $this->buildOperations($entity);
-    //$element['#value']['operations'] = [
-    //  '#type' => 'operations',
-    //  '#links' => self::getDefaultOperations($entity = NULL),
-    //];
 
     // Overwrite the 'day' select-field.
     $day_number = $element['#day'];
     $element['day'] = [
       '#type' => 'hidden',
-      '#prefix' => $daydelta ? "<div class='office-hours-more-label'>$label</div>" : "<div class='office-hours-label'>$label</div>",
+      '#prefix' => $day_delta ? "<div class='office-hours-more-label'>$label</div>" : "<div class='office-hours-label'>$label</div>",
       '#default_value' => $day_number,
     ];
     $element['#attributes']['class'][] = "office-hours-day-$day_number";
@@ -108,7 +92,7 @@ class OfficeHoursSlot extends OfficeHoursList {
   /**
    * Gets this list's default operations.
    *
-   * @param \Drupal\Core\Entity\EntityInterface $entity
+   * @param array $element
    *   The entity the operations are for.
    *
    * @return array
@@ -122,8 +106,8 @@ class OfficeHoursSlot extends OfficeHoursList {
     $operations['add'] = [];
     $suffix = ' ';
 
-    $maxdelta = $element['#field_settings']['cardinality_per_day'] - 1;
-    $daydelta = $element['#daydelta'];
+    $max_delta = $element['#field_settings']['cardinality_per_day'] - 1;
+    $day_delta = $element['#daydelta'];
 
     // Show a 'Clear this line' js-link to each element.
     // Use text 'Remove', which has lots of translations.
@@ -131,10 +115,9 @@ class OfficeHoursSlot extends OfficeHoursList {
     if (isset($element['#value']['starthours']) || isset($element['#value']['endhours'])) {
       $operations['delete'] = [
         '#type' => 'link',
-        //'#title' => t('Delete'),
         '#title' => t('Remove'),
         '#weight' => 12,
-        '#url' => Url::fromRoute('<front>'), // dummy-url, will be catched by javascript.
+        '#url' => Url::fromRoute('<front>'), // dummy-url, will be catch-ed by javascript.
         '#suffix' => $suffix,
         '#attributes' => [
           'class' => ['office-hours-delete-link', ],
@@ -143,15 +126,14 @@ class OfficeHoursSlot extends OfficeHoursList {
     }
 
     // Add 'Copy' link to first slot of each day; first day copies from last day.
-    // @todo: $this->t()
     $operations['copy'] = [];
-    if ($daydelta == 0) {
+    if ($day_delta == 0) {
       $operations['copy'] = [
         '#type' => 'link',
-        '#title' => t('Same as above'),
-        '#title' => t(($element['#day'] !== OfficeHoursDateHelper::getFirstDay() && $daydelta == 0) ? 'Copy previous day' : 'Copy last day') . ' ',
+        '#title' => ($element['#day'] !== OfficeHoursDateHelper::getFirstDay()) && ($day_delta == 0)
+          ? t('Copy previous day') : t('Copy last day'),
         '#weight' => 16,
-        '#url' => Url::fromRoute('<front>'), // dummy-url, will be catched by javascript.
+        '#url' => Url::fromRoute('<front>'), // dummy-url, will be catch-ed by javascript.
         '#suffix' => $suffix,
         '#attributes' => [
           'class' => ['office-hours-copy-link', ],
@@ -161,12 +143,12 @@ class OfficeHoursSlot extends OfficeHoursList {
 
     // Add 'Add time slot' link to all-but-last slots of each day.
     $operations['add'] = [];
-    if ($daydelta < $maxdelta) {
+    if ($day_delta < $max_delta) {
       $operations['add'] = [
         '#type' => 'link',
         '#title' => t('Add @node_type', ['@node_type' => t('time slot'), ]),
         '#weight' => 11,
-        '#url' => Url::fromRoute('<front>'), // dummy-url, will be catched by javascript.
+        '#url' => Url::fromRoute('<front>'), // dummy-url, will be catch-ed by javascript.
         '#suffix' => $suffix,
         '#attributes' => [
           'class' => ['office-hours-add-link', ],

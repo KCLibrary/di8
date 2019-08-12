@@ -63,7 +63,7 @@ class OfficeHoursItemList extends FieldItemList implements OfficeHoursItemListIn
       $office_hours[$day] = [
         'startday' => $day,
         'endday' => NULL,
-        'closed' => $this->t($settings['closed_format']),
+        'closed' => $this->t('@text', ['@text' => $settings['closed_format']]),
         'current' => FALSE,
         'next' => FALSE,
         'slots' => [],
@@ -261,9 +261,9 @@ class OfficeHoursItemList extends FieldItemList implements OfficeHoursItemListIn
 
     $today = (int) idate('w', $_SERVER['REQUEST_TIME']); // Get day_number sun=0 - sat=6.
 
-    foreach ($office_hours as $day => $info) {
-      if ($day == $today) {
-        $new_office_hours[$day] = $info;
+    foreach ($office_hours as $info) {
+      if ($info['startday'] == $today) {
+        $new_office_hours[$today] = $info;
       }
     }
     return $new_office_hours;

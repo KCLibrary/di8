@@ -1,14 +1,7 @@
 Office Hours creates a Field, that you can add to any entity (like a location,
 a restaurant or a user) to represent "office hours" or "opening hours".
 
-== UPGRADE WARNING ==
-You MUST run update.php, when you upgrade from version 1.1 (or lower)
-to a -dev version or version 1.2 (when available).
-
 == GENERAL FEATURES ==
-The Drupal 7 version now provides the following features: 
-- Feeds module support to import data. (See below for details.)
-
 The widget provides:
 - default weekly office hours (multi-value, per field instance).
 - using 1, 2 or even more 'time slots' per day (thanks to jonhattan).
@@ -31,12 +24,14 @@ or
 - Select the 'Office hours' formatter;
 - Check the formatter settings of the field;
 
+
 == FORMATTING THE HOURS ==
 Using the customizable separators in the formatter settings, you can format the hours any way you want. 
 - The formatter is default set up to show a nice table.
 - To export the data to a Google Places bulk upload file, you can create a view,
   and set the formatter to generate the following data (for a shop that opens from Monday to Friday): 
     2:10:00:18:00,3:10:00:18:00,4:10:00:18:00,5:10:00:18:00,6:10:00:18:00,7:12:00:20:00
+
 
 == USING VIEWS - FIELDS ==
 Add the Field to any Views display, as you are used to do.
@@ -58,9 +53,11 @@ Only default (out-of-the-box) Views functionality is provided.
 - To show only the entities that are open NOW: 
   This is not possible, yet. 
 
+
 == USING VIEWS - SORT CRITERIA ==
 Only default (out-of-the-box) Views functionality is provided.
 - To sort the times per day, add the 'day' sort criterion. 
+
 
 == USING VIEWS - CREATE A BLOCK PER NODE/ENTITY ==
 Suppose you want to show the Office hours on a node page, but NOT on the page itself, 
@@ -96,8 +93,7 @@ Now, test your node page. You'll see the Office hours in the page AND in the blo
  - Select the Office_hours, and set the Format to 'Hidden';
  - Save the data, end enjoy the result!
 
-
-== IMPORTING WITH FEEDS MODULE ==
+== D7: IMPORTING WITH FEEDS MODULE ==
 To import data with the Feeds module, the following columns can be used:
 - day;
 - hours/morehours from;
@@ -109,9 +105,79 @@ The hours can be formatted as hh:mm or hh.mm
 
 I suppose Feeds Tamper can help to format the times and/or day to the proper format.
 
-Here's an example file:
+Here is an example file:
 nid;weekday;Hours_1;Hours_2
 2345;monday;11:00 - 18:01;
 2345;tuesday;10:00 - 12:00;13:15-17.45
 2383;monday;11:00 - 18:01;
 2383;tuesday;10:00 - 12:00;13:15-17.45
+
+
+== D8: Migrating from external source ==
+Create a migrate process plugin that returns an array like this:
+
+  Array
+  (
+      [1] => Array
+          (
+              [day] => 1
+              [starthours] => 1600
+              [endhours] => 2200
+          )
+
+      [2] => Array
+          (
+              [day] => 2
+              [starthours] => 1600
+              [endhours] => 2200
+          )
+
+      [3] => Array
+          (
+              [day] => 3
+              [starthours] => 1600
+              [endhours] => 2200
+          )
+
+      [4] => Array
+          (
+              [day] => 4
+              [starthours] => 1300
+              [endhours] => 2200
+          )
+
+      [5] => Array
+          (
+              [day] => 5
+              [starthours] => 1300
+              [endhours] => 2300
+          )
+
+      [6] => Array
+          (
+              [day] => 6
+              [starthours] => 1300
+              [endhours] => 2300
+          )
+
+      [7] => Array
+          (
+              [day] => 0
+              [starthours] => 1300
+              [endhours] => 2100
+          )
+  )
+
+Note that the array key doesn't matter, but that day 0 = Sunday. 
+If you have multiple slots per day, add a new entry with the same the [day] value.
+
+In your migration yml, you can do something like this: 
+
+  field_opening_hours:
+    -
+      plugin: opening_hours
+      source: opening_hours
+    -
+      plugin: office_hours_field_plugin
+
+where the office_hours_field_plugin is supplied by this office_hours module.

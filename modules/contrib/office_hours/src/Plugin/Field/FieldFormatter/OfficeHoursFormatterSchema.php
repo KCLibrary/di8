@@ -12,7 +12,7 @@ use Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface;
  *
  * @FieldFormatter(
  *   id = "office_hours_schema_org",
- *   label = @Translation("openingHours support from scheam.org"),
+ *   label = @Translation("openingHours support from schema.org"),
  *   field_types = {}
  * )
  */
@@ -73,7 +73,9 @@ class OfficeHoursFormatterSchema extends OfficeHoursFormatterBase {
       '#office_hours' => $office_hours,
       '#item_separator' => $settings['separator']['days'],
       '#slot_separator' => $settings['separator']['more_hours'],
-      'class' => ['office-hours', ],
+      '#attributes' => [
+        'class' => ['office-hours', ],
+      ],
       '#cache' => [
         'max-age' => $this->getStatusTimeLeft($items, $langcode),
       ],

@@ -43,8 +43,13 @@ class OfficeHoursList extends FormElement {
   /**
    * Process an individual element.
    *
-   * Build the form element. When creating a form using FAPI #process,
+   * Build the form element. When creating a form using Form API #process,
    * note that $element['#value'] is already set.
+   *
+   * @param $element
+   * @param FormStateInterface $form_state
+   * @param $complete_form
+   * @return
    */
   public static function processOfficeHoursSlot(&$element, FormStateInterface $form_state, &$complete_form) {
     // @todo D8: $form_state = ...
@@ -81,19 +86,22 @@ class OfficeHoursList extends FormElement {
       //'#date_date_element' => 'none', // 'date',
       //'#date_date_callbacks' => [],
       //'#date_year_range' => FALSE, // '2000:2000',
-      //'#date_timezone' => '',
+      '#date_timezone' => '+0000', // new \DateTimezone(DATETIME_STORAGE_TIMEZONE),
+
       // Attributes for element \Drupal\Core\Datetime\Element\Datelist - End.
     ];
     $element['endhours'] = $element['starthours'];
     $element['endhours']['#default_value'] = isset($element['#value']['endhours']) ? $element['#value']['endhours'] : NULL;
 
-    $element['comment'] = [
-      '#type' => $field_settings['comment'] ? 'textfield' : 'hidden',
-      '#default_value' => $field_settings['comment'] && isset($element['#value']['comment']) ? $element['#value']['comment'] : NULL,
-      '#size' => 20,
-      '#maxlength' => 255,
-      '#field_settings' => $field_settings,
-    ];
+    if ($field_settings['comment']) {
+      $element['comment'] = [
+        '#type' => 'textfield',
+        '#default_value' => isset($element['#value']['comment']) ? $element['#value']['comment'] : NULL,
+        '#size' => 20,
+        '#maxlength' => 255,
+        '#field_settings' => $field_settings,
+      ];
+    }
 
     // Copied from EntityListBuilder::buildOperations().
     // $element['#value']['operations'] = $this->buildOperations($entity);
@@ -112,6 +120,9 @@ class OfficeHoursList extends FormElement {
    * For 'office_hours_slot' (day) and 'office_hours_datelist' (hour) elements.
    * You can find the value in $element['#value'], but better in $form_state['values'],
    * which is set in validateOfficeHoursSlot().
+   * @param $element
+   * @param FormStateInterface $form_state
+   * @param $complete_form
    */
   public static function validateOfficeHoursSlot(&$element, FormStateInterface $form_state, &$complete_form) {
     $error_text = '';
@@ -123,7 +134,7 @@ class OfficeHoursList extends FormElement {
 
     if ($input_exists) {
       $field_settings = $element['#field_settings'];
-      $valhrs = $field_settings['valhrs'];
+      $val_hrs = $field_settings['valhrs'];
       $limit_start = $field_settings['limit_start'];
       $limit_end = $field_settings['limit_end'];
 
@@ -134,7 +145,7 @@ class OfficeHoursList extends FormElement {
       if (!empty($start) xor !empty($end)) {
         $error_text = 'Both Opening hours and Closing hours must be set.';
       }
-      elseif ($valhrs && ($start > $end)) {
+      elseif ($val_hrs && ($start > $end)) {
         $error_text = 'Closing hours are earlier than Opening hours.';
       }
       elseif (!empty($limit_start) || !empty($limit_end)) {

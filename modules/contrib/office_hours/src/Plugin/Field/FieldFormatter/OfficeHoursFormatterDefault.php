@@ -48,8 +48,10 @@ class OfficeHoursFormatterDefault extends OfficeHoursFormatterBase {
         '#office_hours' => $office_hours,
         '#item_separator' => $settings['separator']['days'],
         '#slot_separator' => $settings['separator']['more_hours'],
-        'class' => ['office-hours',],
-        //'#empty' => t('This location has no opening hours.'),
+        '#attributes' => [
+          'class' => ['office-hours', ],
+        ],
+        //'#empty' => $this->t('This location has no opening hours.'),
         '#attached' => [
           'library' => [
             'office_hours/office_hours_formatter',

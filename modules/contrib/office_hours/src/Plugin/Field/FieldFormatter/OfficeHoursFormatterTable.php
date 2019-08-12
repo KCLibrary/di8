@@ -22,6 +22,7 @@ class OfficeHoursFormatterTable extends OfficeHoursFormatterBase {
    * {@inheritdoc}
    */
   public function settingsSummary() {
+    $summary = parent::settingsSummary();
     $summary[] = $this->t('Display Office hours in a table.');
     return $summary;
   }
@@ -73,9 +74,9 @@ class OfficeHoursFormatterTable extends OfficeHoursFormatterBase {
     $table = [
       '#theme' => 'table',
       '#attributes' => [
-        'class' => ['office-hours__table'],
+        'class' => ['office-hours__table', ],
       ],
-      //'#empty' => t('This location has no opening hours.'),
+      //'#empty' => $this->t('This location has no opening hours.'),
       '#rows' => $table_rows,
       '#attached' => [
         'library' => [

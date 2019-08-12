@@ -38,10 +38,10 @@ class OfficeHoursDatelist extends Datelist {
       '#date_date_format' => 'none',
       //'#date_date_callbacks' => [],
       //'#date_time_format' => 'time', // see format_date()
-      '#date_time_callbacks' => [], // Can be used to add a jQuery timepicker or an 'All day' checkbox.
+      '#date_time_callbacks' => [], // Can be used to add a jQuery time picker or an 'All day' checkbox.
       '#date_year_range' => '1900:2050',
       // @see Drupal\Core\Datetime\Element\DateElementBase.
-      '#date_timezone' => NULL, // new \DateTimezone(DATETIME_STORAGE_TIMEZONE),
+      '#date_timezone' => '+0000', // new \DateTimezone(DATETIME_STORAGE_TIMEZONE),
     ];
 
     // #process, #validate bottom-up.
@@ -68,14 +68,10 @@ class OfficeHoursDatelist extends Datelist {
    */
   public static function valueCallback(&$element, $input, FormStateInterface $form_state) {
 
-    if ($input !== FALSE) {
-      $input = parent::valueCallback($element, $input, $form_state);
-    }
-    else {
-      $date = NULL;
-
+    if ($input == FALSE) {
       // Prepare the numeric value: use a DateTime value.
       $time = $element['#default_value'];
+      $date = NULL;
       try {
         if (is_array($time)) {
           $date = OfficeHoursDateHelper::createFromArray($time);
@@ -91,10 +87,9 @@ class OfficeHoursDatelist extends Datelist {
         $date = NULL;
       }
       $element['#default_value'] = $date;
-
-      $input = parent::valueCallback($element, $input, $form_state);
     }
 
+    $input = parent::valueCallback($element, $input, $form_state);
     return $input;
   }
 
@@ -119,39 +114,19 @@ class OfficeHoursDatelist extends Datelist {
    * Validate the hours selector element.
    *
    * @param $element
-   * @param $form_state
+   * @param FormStateInterface $form_state
+   * @param $complete_form
    */
   public static function validateOfficeHours(&$element, FormStateInterface $form_state, &$complete_form) {
-    // $input_exists = FALSE;
-    // $input = NestedArray::getValue($form_state->getValues(), $element['#parents'], $input_exists);
-    $input_exists = TRUE;
     $input = $element['#value'];
+    $value = '';
 
-    if ($input_exists) {
-      if (isset($input['hour']) && !isset($input['object'])) {
-        // D7 FormElement.
-        $form_state->setValueForElement($element, '');
-      }
-      elseif (isset($input['object'])) {
-        // For Datelist, Datetime element.
-        if ($input['object']) {
-          $value = (string) $input['object']->format('Gi');
-          $form_state->setValueForElement($element, $value);
-
-          // Set the value for usage in OfficeHoursList::validateOfficeHoursSlot().
-          $element['#value'] = $value;
-        }
-        else {
-          $form_state->setValueForElement($element, '');
-        }
-      }
-      else {
-        $form_state->setValueForElement($element, '');
-      }
+    if (isset($input['object']) && $input['object']) {
+      $value = (string) $input['object']->format('Gi');
+      // Set the value for usage in OfficeHoursList::validateOfficeHoursSlot().
+      $element['#value'] = $value;
     }
-    else {
-      $form_state->setValueForElement($element, '');
-    }
+    $form_state->setValueForElement($element, $value);
   }
 
 }

@@ -23,21 +23,27 @@ abstract class OfficeHoursWidgetBase extends WidgetBase {
       $start = isset($item['starthours']['time']) ? $item['starthours']['time'] : $item['starthours'];
       $end   = isset($item['endhours']['time'])   ? $item['endhours']['time']   : $item['endhours'];
 
+      // Cast the time to integer, to avoid core's error
+      // "This value should be of the correct primitive type."
+      // This is needed for e.g., 0000 and 0030.
+      $item['starthours'] = (int) OfficeHoursDateHelper::format($start, 'Hi');
+      $item['endhours'] = (int) OfficeHoursDateHelper::format($end, 'Hi');
+      // #2070145: Allow Empty time field with comment.
+      // In principle, this prohibited by the database: value '' is not
+      // allowed. The format is int(11).
+      // Would changing the format to 'string' help?
+      // Perhaps, but using '-1' (saved as '-001') works, too.
+      if (empty($start) && !empty($item['comment'])) {
+        $item['starthours'] = -1;
+      }
+      if (empty($end) && !empty($item['comment'])) {
+        $item['endhours'] = -1;
+      }
+
+      // Note: below could better be done in OfficeHoursItemList::filter().
+      // However, then we have below error "value '' is not allowed".
       if (empty($start) && empty($end) && empty($item['comment'])) {
         unset($values[$key]);
-      }
-      elseif (empty($start) && empty($end) && $item['comment'] != '') {
-        // @todo: allow closed days with comment. However, this is prohibited.
-        //        by the database: value '' is not allowed. The format is
-        //        int(11). Would changing the format to 'string' help?
-        unset($values[$key]);
-      }
-      else {
-        // Avoid core's error "This value should be of the correct primitive type."
-        // by casting the times to integer.
-        // This is needed for e.g., 0000 and 0030.
-        $item['starthours'] = (int) OfficeHoursDateHelper::format($start, 'Hi');
-        $item['endhours'] = (int) OfficeHoursDateHelper::format($end, 'Hi');
       }
     }
 

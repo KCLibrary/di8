@@ -7,6 +7,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\office_hours\OfficeHoursDateHelper;
 use Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface;
 
@@ -50,7 +51,7 @@ abstract class OfficeHoursFormatterBase extends FormatterBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    $element = [];
+    $element = parent::settingsForm($form, $form_state);
 
     $settings = $this->getSettings();
     $day_names = OfficeHoursDateHelper::weekDays(FALSE);
@@ -144,8 +145,7 @@ abstract class OfficeHoursFormatterBase extends FormatterBase {
         <a>can be translated</a> when the
         <a href=":install">Interface Translation module</a> is installed.',
         [
-          // ':translate' => \Drupal::url('locale.translate_page'),
-          ':install' => \Drupal::url('system.modules_list'),
+          ':install' => Url::fromRoute('system.modules_list')->toString(),
         ]
       ),
     ];
@@ -197,8 +197,7 @@ abstract class OfficeHoursFormatterBase extends FormatterBase {
       '#description' => $this->t('Below strings <a>can be translated</a> when the
         <a href=":install">Interface Translation module</a> is installed.',
         [
-          // ':translate' => \Drupal::url('locale.translate_page'),
-          ':install' => \Drupal::url('system.modules_list'),
+          ':install' => Url::fromRoute('system.modules_list')->toString(),
         ]),
     ];
     $element['current_status']['position'] = [
@@ -265,6 +264,7 @@ abstract class OfficeHoursFormatterBase extends FormatterBase {
    * {@inheritdoc}
    */
   public function settingsSummary() {
+    $summary = parent::settingsSummary();
     // @todo: Return more info, like the Date module does.
     $summary[] = $this->t('Display Office hours in different formats.');
     return $summary;

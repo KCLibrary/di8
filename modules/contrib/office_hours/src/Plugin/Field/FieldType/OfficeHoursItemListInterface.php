@@ -18,8 +18,8 @@ interface OfficeHoursItemListInterface extends FieldItemListInterface {
   public function isOpen($time = NULL);
 
   /**
-   * @param array $settngs
-   * @param array $field_settngs
+   * @param array $settings
+   * @param array $field_settings
    * @param $time
    * @return mixed
    */

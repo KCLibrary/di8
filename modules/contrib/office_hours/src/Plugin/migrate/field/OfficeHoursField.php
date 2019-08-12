@@ -21,15 +21,6 @@ class OfficeHoursField extends FieldPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function getFieldFormatterMap() {
-    return [
-      'office_hours' => 'office_hours_default',
-    ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getFieldWidgetMap() {
     return [
       'office_hours' => 'office_hours_default',
@@ -40,6 +31,13 @@ class OfficeHoursField extends FieldPluginBase {
    * {@inheritdoc}
    */
   public function processFieldValues(MigrationInterface $migration, $field_name, $data) {
+    $this->defineValueProcessPipeline($migration, $field_name, $data);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function defineValueProcessPipeline(MigrationInterface $migration, $field_name, $data) {
     $process = [
       'plugin' => 'office_hours_field_plugin',
       'source' => $field_name,

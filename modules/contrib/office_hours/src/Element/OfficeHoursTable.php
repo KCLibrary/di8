@@ -16,17 +16,14 @@ class OfficeHoursTable extends Table {
    * @inheritdoc
    */
   public static function valueCallback(&$element, $input, FormStateInterface $form_state) {
-    if ($input) {
-      $input = parent::valueCallback($element, $input, $form_state);
-      // Let child elements set starthours and endhours via their valueCallback.
-      //foreach($input as $key => $value) {
-      //  unset($input[$key]['starthours']);
-      //  unset($input[$key]['endhours']);
-      //}
-    }
-    else {
-      $input = parent::valueCallback($element, $input, $form_state);
-    }
+    // if ($input) {
+    //    // Let child elements set start_hours and end_hours via their valueCallback.
+    //   foreach($input as $key => $value) {
+    //      unset($input[$key]['start_hours']);
+    //      unset($input[$key]['end_hours']);
+    //   }
+    // }
+    $input = parent::valueCallback($element, $input, $form_state);
 
     return $input;
   }

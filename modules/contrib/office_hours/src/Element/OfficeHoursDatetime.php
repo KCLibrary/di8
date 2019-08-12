@@ -37,10 +37,10 @@ class OfficeHoursDatetime extends Datetime {
       //'#date_date_callbacks' => [],
       '#date_time_element' => 'time', // {'none'|'time'|'text'}
       //'#date_time_format' => 'time', // see format_date()
-      //'#date_time_callbacks' => [], // Can be used to add a jQuery timepicker or an 'All day' checkbox.
+      //'#date_time_callbacks' => [], // Can be used to add a jQuery time picker or an 'All day' checkbox.
       //'#date_year_range' => '1900:2050',
       // @see Drupal\Core\Datetime\Element\DateElementBase.
-      //'#date_timezone' => NULL, // new \DateTimezone(DATETIME_STORAGE_TIMEZONE),
+      '#date_timezone' => '+0000', // new \DateTimezone(DATETIME_STORAGE_TIMEZONE),
     ];
 
     // #process: bottom-up.
@@ -87,19 +87,18 @@ class OfficeHoursDatetime extends Datetime {
    * @param $element
    * @param FormStateInterface $form_state
    * @param $complete_form
-   *
-   * @return
+   * @return array
    */
   public static function processOfficeHours(&$element, FormStateInterface $form_state, &$complete_form) {$element = parent::processDatetime($element, $form_state, $complete_form);
 
     // @todo: use $element['#date_time_callbacks'], do not use this function.
     // Adds the HTML5 attributes.
     $element['time']['#attributes'] = [
-      // @todo: set a proper from/to title.
-      // 'title' => t('Time (e.g. @format)', ['@format' => static::formatExample($time_format)]),
-      // Fix the convention: minutes vs. seconds.
-      'step' => $element['#date_increment'] * 60,
-    ] + $element['time']['#attributes'];
+        // @todo: set a proper from/to title.
+        // 'title' => $this->t('Time (e.g. @format)', ['@format' => static::formatExample($time_format)]),
+        // Fix the convention: minutes vs. seconds.
+        'step' => $element['#date_increment'] * 60,
+      ] + $element['time']['#attributes'];
 
     return $element;
   }
@@ -108,7 +107,8 @@ class OfficeHoursDatetime extends Datetime {
    * Validate the hours selector element.
    *
    * @param $element
-   * @param $form_state
+   * @param FormStateInterface $form_state
+   * @param $complete_form
    */
   public static function validateOfficeHours(&$element, FormStateInterface $form_state, &$complete_form) {
     $input_exists = FALSE;

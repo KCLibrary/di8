@@ -26,8 +26,6 @@ class OfficeHoursItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
-    // todo D8: waar komt dit vandaan?  $maxlenght = $field_definition->getSetting('maxlength');
-
     return [
       'columns' => [
         'day' => [
@@ -84,8 +82,8 @@ class OfficeHoursItem extends FieldItemBase {
         'increment' => 30,
         'limit_start' => '',
         'limit_end' => '',
-        'comment' => 1,
-        'valhrs' => 0,
+        'comment' => TRUE,
+        'valhrs' => FALSE,
         'cardinality_per_day' => 2,
       ] + parent::defaultStorageSettings();
 
@@ -96,7 +94,7 @@ class OfficeHoursItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public function storageSettingsForm(array &$form, FormStateInterface $form_state, $has_data) {
-    $element = [];
+    $element = parent::storageSettingsForm($form, $form_state, $has_data);
 
     $settings = $this->getFieldDefinition()
       ->getFieldStorageDefinition()
@@ -147,7 +145,7 @@ class OfficeHoursItem extends FieldItemBase {
     $element['element_type'] = [
       '#type' => 'select',
       '#title' => $this->t('Time element type'),
-      '#description' => $this->t('Select the widget type for inputing time.'),
+      '#description' => $this->t('Select the widget type for selecting the time.'),
       '#options' => [
         'office_hours_datelist' => 'Select list',
         'office_hours_datetime' => 'HTML5 time input',
@@ -172,7 +170,7 @@ class OfficeHoursItem extends FieldItemBase {
 
     $element['comment'] = [
       '#type' => 'checkbox',
-      '#title' => t('Allow a comment per time slot'),
+      '#title' => $this->t('Allow a comment per time slot'),
       '#required' => FALSE,
       '#default_value' => $settings['comment'],
     ];
@@ -205,25 +203,28 @@ class OfficeHoursItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public function isEmpty() {
-    // @todo: for Week-widget, day is always <> ''
-    //         for list-widget, day can be ''.
-    // N.B. Test every change with both widgets!
-    if ( // !$this->get('day')->getValue() == '' &&
-      $this->get('starthours')->getValue() == '' &&
-      $this->get('endhours')->getValue() == '' &&
-      $this->get('comment')->getValue() == ''
+    // Note: in Week-widget, day is <> '', in List-widget, day can be ''.
+    // Note: Test every change with both widgets!
+    // Note: The 'day' element may or may not be filled.
+    if (
+      empty($this->get('starthours')->getValue()) &&
+      empty($this->get('endhours')->getValue()) &&
+      empty($this->get('comment')->getValue())
     ) {
       return TRUE;
     }
     return FALSE;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getConstraints() {
     $constraints = [];
     // @todo: when adding parent::getConstraints(), only English is allowed...
     // $constraints = parent::getConstraints();
-
-    if ($max_length = $this->getSetting('max_length')) {
+    $max_length = $this->getSetting('max_length');
+    if ($max_length) {
       $constraint_manager = \Drupal::typedDataManager()
         ->getValidationConstraintManager();
       $constraints[] = $constraint_manager->create('ComplexData', [

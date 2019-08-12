@@ -7,6 +7,7 @@
 
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\Unicode;
 
 /**
  * Implements hook_theme().
@@ -41,13 +42,23 @@ function office_hours_theme() {
 }
 
 /**
- * @param $variables
+ * Prepares variables for office hours table templates.
+ *
+ * Default template: office-hours-table.html.twig.
+ *
+ * @param object $variables
+ *   The variables array.
  */
 function template_preprocess_office_hours_table(&$variables) {
 }
 
 /**
- * @param $variables
+ * Prepares variables for office hours templates.
+ *
+ * Default template: office-hours.html.twig.
+ *
+ * @param object $variables
+ *   The variables array.
  */
 function template_preprocess_office_hours(&$variables) {
   $office_hours = $variables['office_hours'];
@@ -72,14 +83,14 @@ function template_preprocess_office_hours(&$variables) {
 
   foreach ($office_hours as $info) {
     $label = $info['label'];
-    $label_length = max($label_length, \Drupal\Component\Utility\Unicode::strlen($label));
+    $label_length = max($label_length, Unicode::strlen($label));
 
     $items[] = [
       'label' => $label,
       'slots' => ['#type' => 'markup', '#markup' => $info['formatted_slots']],
       'comments' => ['#type' => 'markup', '#markup' => $info['comments']],
-      'suffix' => $variables['item_separator'], // @todo, not used yet in twig.
-      // @todo: use $variables['item_separator'] in office-hours.html.twig. Do not hardcode.
+      'suffix' => $variables['item_separator'],
+      // @todo: use $variables['item_separator'] in office-hours.html.twig.
     ];
   }
 
@@ -92,7 +103,7 @@ function template_preprocess_office_hours(&$variables) {
  *
  * Default template: office-hours-status.html.twig.
  *
- * @param array $variables
+ * @param object $variables
  *   An associative array containing:
  *   - open: A boolean indicating whether there is an open time slot right now.
  *   - open_text: A string containing the text to display when there is an
@@ -112,11 +123,11 @@ function office_hours_form_field_storage_config_edit_form_alter(&$form, FormStat
   $entity = $form_state->getFormObject()->getEntity();
   if ($entity->getType() == 'office_hours') {
     $form['cardinality_container']['cardinality'] = [
-        '#options' => [FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED => t('Unlimited')],
-        '#default_value' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
-        '#description' => '<p>' . t("This is unlimited by this field's nature. See
+      '#options' => [FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED => t('Unlimited')],
+      '#default_value' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
+      '#description' => '<p>' . t("This is unlimited by this field's nature. See
       'Number of slots' for limiting the number of slots per day."),
-      ]
+    ]
       + $form['cardinality_container']['cardinality'];
   }
 }

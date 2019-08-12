@@ -27,7 +27,7 @@ class OfficeHoursDefaultWidget extends OfficeHoursWidgetBase {
    *
    * Removed the added generic features for multiple fields:
    * - number of widgets
-   * - AHAH-'add more' button
+   * - AHAH 'add more' button
    * - table display and drag-n-drop value reordering
    *
    * @inheritdoc
@@ -95,15 +95,18 @@ class OfficeHoursDefaultWidget extends OfficeHoursWidgetBase {
     }
 
     // Build multi element widget. Copy the description, etc. into the table.
+    $header = [
+      'title' => $this->t($element['#title']),
+      'from' => $this->t('From'),
+      'to' => $this->t('To'),
+    ];
+    if ($element['#field_settings']['comment']) {
+      $header['comment'] = $this->t('Comment');
+    }
+    $header['operations'] = $this->t('Operations');
     $element['value'] = [
         '#type' => 'office_hours_table',
-        '#header' => [
-          'title' => $this->t($element['#title']),
-          'from' => $this->t('From'),
-          'to' => $this->t('To'),
-          'comment' => $element['#field_settings']['comment'] ? $this->t('Comment') : '',
-          'operations' => $this->t('Operations'),
-        ],
+        '#header' => $header,
         '#tableselect' => FALSE,
         '#tabledrag' => FALSE,
       ] + $element['value'] + $elements;
